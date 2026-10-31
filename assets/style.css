@@ -293,6 +293,20 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 .v-bigplay:after{content:"";position:absolute;top:50%;left:50%;margin:-13px 0 0 -8px;
   border-style:solid;border-width:13px 0 13px 22px;border-color:transparent transparent transparent #fff}
 @media (hover:hover){.v-start:hover .v-bigplay{-webkit-transform:scale(1.06);transform:scale(1.06);background:rgba(12,12,12,.72)}}
+/* 전체화면으로 보기 버튼 (스크립트가 꺼져 있으면 숨김) */
+.v-tools{display:none;margin-top:12px;text-align:right}
+.js .v-tools{display:block}
+.v-full{
+  -webkit-appearance:none;appearance:none;display:-webkit-inline-box;display:-webkit-inline-flex;display:inline-flex;
+  -webkit-box-align:center;-webkit-align-items:center;align-items:center;
+  padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.06);
+  color:var(--ink);font:inherit;font-size:14px;font-weight:500;line-height:1;cursor:pointer;-webkit-tap-highlight-color:transparent;
+}
+@media (hover:hover){.v-full:hover{background:rgba(255,255,255,.14)}}
+.v-full svg{width:14px;height:14px;margin-right:8px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+/* 전체화면일 때 플레이어가 화면을 꽉 채우도록 */
+.player-box:-webkit-full-screen{padding-top:0;width:100%;height:100%;box-shadow:none}
+.player-box:fullscreen{padding-top:0;width:100%;height:100%;box-shadow:none}
 @media (max-width:480px){.v-bigplay{width:60px;height:60px;margin:-30px 0 0 -30px}.v-bigplay:after{margin:-10px 0 0 -6px;border-width:10px 0 10px 17px}}
 .vcap{
   max-width:1200px;margin:22px auto 0;

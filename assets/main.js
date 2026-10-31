@@ -56,17 +56,50 @@
   document.addEventListener("dragstart", block);
 
   // ── 영상 페이지: 재생 버튼을 누르면 썸네일 자리에 구글 드라이브 플레이어를 넣음 ──
+  //    휴대폰에서는 누르는 순간 전체화면 + 가로 화면으로 크게 보여 줌
+  var isPhone = window.matchMedia && window.matchMedia("(pointer:coarse) and (max-width:900px)").matches;
+  function startPlayer(a) {
+    if (!a || !a.parentNode) return;
+    var f = document.createElement("iframe");
+    f.className = "v-frame";
+    f.src = a.getAttribute("data-embed");
+    f.title = a.getAttribute("data-title") || "영상";
+    f.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
+    f.setAttribute("allowfullscreen", "");
+    f.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+    a.parentNode.replaceChild(f, a);
+  }
+  function goFull(box, fallbackUrl) {
+    var req = box.requestFullscreen || box.webkitRequestFullscreen;
+    if (!req) {   // 아이폰 사파리처럼 전체화면 기능이 없는 브라우저: 구글 드라이브 영상 화면으로 크게 열기
+      if (fallbackUrl) window.open(fallbackUrl, "_blank");
+      return false;
+    }
+    try {
+      var p = req.call(box);
+      var lock = function () {
+        try { if (screen.orientation && screen.orientation.lock) screen.orientation.lock("landscape")["catch"](function () {}); } catch (err) {}
+      };
+      if (p && p.then) p.then(lock, function () {}); else lock();
+    } catch (err) {}
+    return true;
+  }
   each(document.querySelectorAll(".v-start"), function (a) {
     a.addEventListener("click", function (e) {
+      var box = a.parentNode;
+      if (isPhone && !(box.requestFullscreen || box.webkitRequestFullscreen)) return;  // 아이폰: 링크 그대로 → 드라이브에서 크게 재생
       e.preventDefault();
-      var f = document.createElement("iframe");
-      f.className = "v-frame";
-      f.src = a.getAttribute("data-embed");
-      f.title = a.getAttribute("data-title") || "영상";
-      f.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
-      f.setAttribute("allowfullscreen", "");
-      f.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
-      a.parentNode.replaceChild(f, a);
+      startPlayer(a);
+      if (isPhone) goFull(box);
+    });
+  });
+  each(document.querySelectorAll(".v-full"), function (btn) {
+    btn.addEventListener("click", function () {
+      var box = document.querySelector(".player-box");
+      var a = box && box.querySelector(".v-start");
+      var url = a ? a.getAttribute("href") : btn.getAttribute("data-view");
+      if (box && (box.requestFullscreen || box.webkitRequestFullscreen)) startPlayer(a);
+      if (box) goFull(box, url);
     });
   });
 
