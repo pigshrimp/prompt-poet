@@ -135,3 +135,11 @@
   .gd-fan .gd-obj{-webkit-transform:rotateY(-10deg) rotateZ(-2deg);transform:rotateY(-10deg) rotateZ(-2deg)}
   .gd-canvas .gd-obj{-webkit-transform:rotateY(-22deg);transform:rotateY(-22deg)}
 }
+
+/* 휴대폰·태블릿(아이폰 사파리 등): 3D로 돌아가는 투명 이미지에 그림자(drop-shadow)나 빛 효과(blend)를 겹치면
+   투명한 부분까지 네모나게 어둡게 그려지는 문제가 있어 끔. 바닥 그림자(.gd-shadow)는 그대로 둠 */
+@media (hover:none),(pointer:coarse){
+  .gd-sheen{display:none}
+  .gd-sweatshirt .gd-obj img,.gd-fan .gd-obj img{-webkit-filter:none;filter:none}
+  .gd-obj{will-change:auto}
+}
