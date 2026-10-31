@@ -55,6 +55,21 @@
   document.addEventListener("contextmenu", block);
   document.addEventListener("dragstart", block);
 
+  // ── 영상 페이지: 재생 버튼을 누르면 썸네일 자리에 구글 드라이브 플레이어를 넣음 ──
+  each(document.querySelectorAll(".v-start"), function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var f = document.createElement("iframe");
+      f.className = "v-frame";
+      f.src = a.getAttribute("data-embed");
+      f.title = a.getAttribute("data-title") || "영상";
+      f.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
+      f.setAttribute("allowfullscreen", "");
+      f.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+      a.parentNode.replaceChild(f, a);
+    });
+  });
+
   // ── 메인 갤러리: 이미지 / 영상 탭 (주소 끝 #video 로 영상 탭 기억 → 영상 페이지에서 돌아와도 그대로) ──
   var tabs = document.querySelectorAll(".g-tab");
   if (!tabs.length) return;

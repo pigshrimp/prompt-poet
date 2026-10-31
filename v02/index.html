@@ -36,7 +36,7 @@
 .is-ready .loader{opacity:0;visibility:hidden}
 </style>
 <noscript><style>.loader{display:none}.reveal{opacity:1!important;-webkit-transform:none!important;transform:none!important}</style></noscript>
-<link rel="stylesheet" href="../assets/style.css?v=05ab2a61">
+<link rel="stylesheet" href="../assets/style.css?v=cd56e4bb">
 <script>document.documentElement.className=document.documentElement.className.replace("no-js","js");</script>
 </head>
 <body>
@@ -48,12 +48,15 @@
 </header>
 
 <main class="vwork">
-  <!-- 영상: 극장처럼 어두운 배경 위 16:9 화면. 썸네일이 먼저 보이고 그 위에 영상 플레이어가 올라옴 -->
+  <!-- 영상: 썸네일 + 재생 버튼이 먼저 보이고, 누르면 그 자리에 구글 드라이브 플레이어가 열림
+       (스크립트가 꺼진 환경에서는 링크로 구글 드라이브 영상 페이지가 열림) -->
   <div class="player reveal reveal-art">
     <div class="player-box">
-      <img class="v-poster" src="img/v02-1800.jpg" alt="" width="1890" height="1052" data-wait="" draggable="false">
-      <iframe class="v-frame" src="https://drive.google.com/file/d/1a5o11jx0Az4WWRnSCIng4HOU3fbbtfP7/preview" title="김희진, 〈영상1〉 영상"
-              allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      <a class="v-start" href="https://drive.google.com/file/d/1a5o11jx0Az4WWRnSCIng4HOU3fbbtfP7/view" target="_blank" rel="noopener"
+         data-embed="https://drive.google.com/file/d/1a5o11jx0Az4WWRnSCIng4HOU3fbbtfP7/preview" data-title="김희진, 〈영상1〉 영상" aria-label="영상 재생: 김희진, 〈영상1〉 영상">
+        <img class="v-poster" src="img/v02-1800.jpg" alt="" width="1890" height="1052" data-wait="" draggable="false">
+        <span class="v-bigplay" aria-hidden="true"></span>
+      </a>
     </div>
   </div>
 
@@ -74,6 +77,6 @@
   <p><span class="foot-k">주최 및 진행</span>내를 건너 숲으로 도서관</p>
 </footer>
 
-<script src="../assets/main.js?v=05ab2a61" defer></script>
+<script src="../assets/main.js?v=cd56e4bb" defer></script>
 </body>
 </html>
