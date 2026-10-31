@@ -118,14 +118,7 @@
     if (pushed && !fromHistory) { pushed = false; try { history.back(); } catch (err) {} }
     pushed = false;
     // 휴대폰: 작은 화면 안에서는 드라이브 플레이어가 잘려 보이므로, 닫으면 원래 썸네일+재생 버튼으로 되돌림
-    if (nativeVideo) {
-      if (isPhone) {   // 휴대폰: 닫으면 멈추고 처음 화면(썸네일+재생 버튼)으로
-        try { nativeVideo.pause(); } catch (err) {}
-        nativeVideo.controls = false;
-        if (startLink && !startLink.parentNode) box.insertBefore(startLink, nativeVideo.nextSibling);
-      }
-      return;
-    }
+    if (nativeVideo) return;   // 영상 파일: 닫으면 원래 크기로 돌아와 이어서 재생
     if (isPhone && startLink) {
       var f = box.querySelector(".v-frame");
       if (f) box.replaceChild(startLink, f);
@@ -141,7 +134,8 @@
     a.addEventListener("click", function (e) {
       e.preventDefault();
       startPlayer();
-      if (isPhone || nativeVideo) openTheater();   // 휴대폰·태블릿: 누르면 바로 크게
+      // 재생 버튼: 화면 안 원래 크기 그대로 재생 (크게 보려면 '전체화면으로 보기' 버튼)
+      if (isPhone && !nativeVideo) openTheater();   // (영상 파일이 없는 경우만: 드라이브 재생기는 작은 화면에서 잘려 보여서 크게 엶)
     });
   });
   each(document.querySelectorAll(".v-full"), function (btn) {
