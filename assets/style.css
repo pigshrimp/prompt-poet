@@ -311,15 +311,10 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
   position:fixed;top:0;right:0;bottom:0;left:0;z-index:100;
   height:auto;padding:0;width:auto;background:#000;box-shadow:none;
 }
+/* 플레이어를 화면 전체 크기로 → 구글 드라이브가 영상을 가운데에 온전히 맞춰 넣음
+   (아이폰에서 16:9 작은 상자에 넣으면 드라이브가 영상을 아래로 밀어 잘리게 그림) */
 .player-box.is-theater .v-frame,.player-box.is-theater .v-start{
-  top:50%;left:50%;width:100%;height:56.25vw;max-height:100%;
-  -webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);
-}
-@supports (width:min(10px,5vw)){
-  .player-box.is-theater .v-frame,.player-box.is-theater .v-start{width:min(100vw, 177.78vh);height:min(56.25vw, 100vh);max-height:none}
-}
-@supports (height:100dvh){
-  .player-box.is-theater .v-frame,.player-box.is-theater .v-start{width:min(100vw, 177.78dvh);height:min(56.25vw, 100dvh)}
+  top:0;left:0;width:100%;height:100%;-webkit-transform:none;transform:none;
 }
 .player-box.is-theater .v-close{
   display:-webkit-box;display:-webkit-flex;display:flex;-webkit-box-align:center;-webkit-align-items:center;align-items:center;

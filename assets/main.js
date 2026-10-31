@@ -60,6 +60,7 @@
   //    닫기 버튼 · 뒤로가기(안드로이드 뒤로 버튼, 아이폰 밀어서 뒤로) · ESC 로 닫으면 원래 페이지로 돌아옴
   var isPhone = window.matchMedia && window.matchMedia("(pointer:coarse) and (max-width:900px)").matches;
   var box = document.querySelector(".player-box");
+  var startLink = box && box.querySelector(".v-start");   // 썸네일+재생 버튼 (닫을 때 되돌리기용)
   function startPlayer() {
     var a = box && box.querySelector(".v-start");
     if (!a) return;
@@ -104,6 +105,11 @@
     }
     if (pushed && !fromHistory) { pushed = false; try { history.back(); } catch (err) {} }
     pushed = false;
+    // 휴대폰: 작은 화면 안에서는 드라이브 플레이어가 잘려 보이므로, 닫으면 원래 썸네일+재생 버튼으로 되돌림
+    if (isPhone && startLink) {
+      var f = box.querySelector(".v-frame");
+      if (f) box.replaceChild(startLink, f);
+    }
   }
   function onFsChange() { if (!fsElement() && theater) closeTheater(false); }
   document.addEventListener("fullscreenchange", onFsChange);
