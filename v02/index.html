@@ -13,7 +13,7 @@
 <meta property="og:type" content="video.other">
 <meta property="og:title" content="김희진 〈영상1〉">
 <meta property="og:description" content="《낯선 도구, 들여다본 마음》 동아리 〈프롬프트 포에트〉 첫 번째 전시">
-<meta property="og:image" content="https://pigshrimp.github.io/prompt-poet/v02/img/og.jpg">
+<meta property="og:image" content="https://pigshrimp.github.io/prompt-poet/assets/brand/og-logo.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -36,7 +36,7 @@
 .is-ready .loader{opacity:0;visibility:hidden}
 </style>
 <noscript><style>.loader{display:none}.reveal{opacity:1!important;-webkit-transform:none!important;transform:none!important}</style></noscript>
-<link rel="stylesheet" href="../assets/style.css?v=882cbc1e">
+<link rel="stylesheet" href="../assets/style.css?v=ab58a029">
 <script>document.documentElement.className=document.documentElement.className.replace("no-js","js");</script>
 </head>
 <body>
@@ -48,10 +48,11 @@
 </header>
 
 <main class="vwork">
-  <!-- 영상: 썸네일 + 재생 버튼이 먼저 보이고, 누르면 그 자리에 구글 드라이브 플레이어가 열림
-       (스크립트가 꺼진 환경에서는 링크로 구글 드라이브 영상 페이지가 열림) -->
+  <!-- 영상: 썸네일 + 재생 버튼이 먼저 보이고, 누르면 재생.
+       휴대폰은 누르는 순간 가로 전체화면(크게 보기)으로 열림. 영상 파일이 있으면 직접 재생, 없으면 구글 드라이브 재생기 -->
   <div class="player reveal reveal-art">
     <div class="player-box">
+      <video class="v-native" src="video.mp4" poster="img/v02-1800.jpg" preload="none" playsinline webkit-playsinline controlslist="nodownload" disablepictureinpicture width="1890" height="1052" title="김희진, 〈영상1〉 영상"></video>
       <a class="v-start" href="https://drive.google.com/file/d/1a5o11jx0Az4WWRnSCIng4HOU3fbbtfP7/view" target="_blank" rel="noopener"
          data-embed="https://drive.google.com/file/d/1a5o11jx0Az4WWRnSCIng4HOU3fbbtfP7/preview" data-title="김희진, 〈영상1〉 영상" aria-label="영상 재생: 김희진, 〈영상1〉 영상">
         <img class="v-poster" src="img/v02-1800.jpg" alt="" width="1890" height="1052" data-wait="" draggable="false">
@@ -60,7 +61,7 @@
       <button type="button" class="v-close" aria-label="크게 보기 닫기"><span aria-hidden="true"></span>닫기</button>
     </div>
     <div class="v-tools">
-      <button type="button" class="v-full" data-view="https://drive.google.com/file/d/1a5o11jx0Az4WWRnSCIng4HOU3fbbtfP7/view"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 5V1h4M11 1h4v4M15 11v4h-4M5 15H1v-4"/></svg>전체화면으로 보기</button>
+      <button type="button" class="v-full"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 5V1h4M11 1h4v4M15 11v4h-4M5 15H1v-4"/></svg>전체화면으로 보기</button>
     </div>
   </div>
 
@@ -81,6 +82,6 @@
   <p><span class="foot-k">주최 및 진행</span>내를 건너 숲으로 도서관</p>
 </footer>
 
-<script src="../assets/main.js?v=882cbc1e" defer></script>
+<script src="../assets/main.js?v=ab58a029" defer></script>
 </body>
 </html>
