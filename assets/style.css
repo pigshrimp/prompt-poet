@@ -387,7 +387,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
   color:#666;color:var(--muted);
 }
 .foot-credits p{margin:0 0 2px}
-.foot-k{display:inline-block;min-width:11em;font-weight:600;margin-right:10px;color:#1b1b1b;color:var(--ink)}
+.foot-k{display:inline-block;min-width:10em;font-weight:600;margin-right:10px;color:#1b1b1b;color:var(--ink)}
 .foot-copy{margin:12px 0 0;font-size:10.5px;line-height:1.6;opacity:.85;word-break:keep-all}
 .foot-copy-only{margin-top:0}
 @media (min-width:960px){.site-foot{padding-left:40px;padding-right:40px}}
