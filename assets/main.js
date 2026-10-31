@@ -54,4 +54,24 @@
   function block(e) { if (onArt(e.target)) { e.preventDefault(); return false; } }
   document.addEventListener("contextmenu", block);
   document.addEventListener("dragstart", block);
+
+  // ── 메인 갤러리: 이미지 / 영상 탭 (주소 끝 #video 로 영상 탭 기억 → 영상 페이지에서 돌아와도 그대로) ──
+  var tabs = document.querySelectorAll(".g-tab");
+  if (!tabs.length) return;
+  function show(name) {
+    each(tabs, function (t) {
+      var on = t.getAttribute("data-tab") === name;
+      t.className = on ? "g-tab is-on" : "g-tab";
+      t.setAttribute("aria-selected", on ? "true" : "false");
+      var panel = document.getElementById(t.getAttribute("aria-controls"));
+      if (panel) panel.hidden = !on;
+    });
+    if (window.history && history.replaceState) {
+      try { history.replaceState(null, "", name === "video" ? "#video" : location.pathname + location.search); } catch (err) {}
+    }
+  }
+  each(tabs, function (t) {
+    t.addEventListener("click", function () { show(t.getAttribute("data-tab")); });
+  });
+  if (location.hash === "#video") show("video");
 })();

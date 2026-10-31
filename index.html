@@ -5,24 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="format-detection" content="telephone=no">
-<title>《낯선 도구, 들여다본 마음》 — AI 창작 동아리 〈프롬프트 포에트〉 전시</title>
-<meta name="description" content="《낯선 도구, 들여다본 마음》 AI 창작 동아리 〈프롬프트 포에트〉 전시 — 작품 10점">
+<title>《낯선 도구, 들여다본 마음》 — 동아리 〈프롬프트 포에트〉 첫 번째 전시</title>
+<meta name="description" content="《낯선 도구, 들여다본 마음》 동아리 〈프롬프트 포에트〉 첫 번째 전시 — 작품 10점">
 <meta name="theme-color" content="#f2f0eb">
 <meta name="color-scheme" content="only light">
 <link rel="canonical" href="https://pigshrimp.github.io/prompt-poet/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="《낯선 도구, 들여다본 마음》">
-<meta property="og:description" content="AI 창작 동아리 〈프롬프트 포에트〉 전시 · 작품 10점">
+<meta property="og:description" content="동아리 〈프롬프트 포에트〉 첫 번째 전시 · 작품 10점">
 <meta property="og:image" content="https://pigshrimp.github.io/prompt-poet/01/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" sizes="48x48" href="assets/brand/favicon-48.png">
 <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
 <link rel="preload" href="assets/brand/logo-ink.png" as="image">
-<link rel="preload" href="assets/fonts/pretendard-400.5b75b8b1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/pretendard-400.1a26bc6e.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-@font-face{font-family:"PP Pretendard";font-weight:400;font-style:normal;font-display:swap;src:url("assets/fonts/pretendard-400.5b75b8b1.woff2") format("woff2")}
-@font-face{font-family:"PP Pretendard";font-weight:500;font-style:normal;font-display:swap;src:url("assets/fonts/pretendard-500.5b75b8b1.woff2") format("woff2")}
-@font-face{font-family:"PP Pretendard";font-weight:600;font-style:normal;font-display:swap;src:url("assets/fonts/pretendard-600.5b75b8b1.woff2") format("woff2")}
+@font-face{font-family:"PP Pretendard";font-weight:400;font-style:normal;font-display:swap;src:url("assets/fonts/pretendard-400.1a26bc6e.woff2") format("woff2")}
+@font-face{font-family:"PP Pretendard";font-weight:500;font-style:normal;font-display:swap;src:url("assets/fonts/pretendard-500.1a26bc6e.woff2") format("woff2")}
+@font-face{font-family:"PP Pretendard";font-weight:600;font-style:normal;font-display:swap;src:url("assets/fonts/pretendard-600.1a26bc6e.woff2") format("woff2")}
 /* 로딩 화면은 CSS 파일보다 먼저 보이도록 여기 둡니다 */
 .loader{position:fixed;top:0;right:0;bottom:0;left:0;z-index:50;display:-webkit-box;display:-webkit-flex;display:flex;-webkit-box-align:center;-webkit-align-items:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;justify-content:center;background-color:#f2f0eb;-webkit-transition:opacity .7s ease,visibility 0s linear .7s;transition:opacity .7s ease,visibility 0s linear .7s}
 .loader img{width:64px;height:auto;opacity:0;-webkit-animation:pp-logo-in .8s ease .1s forwards,pp-breathe 2.4s ease-in-out .9s infinite;animation:pp-logo-in .8s ease .1s forwards,pp-breathe 2.4s ease-in-out .9s infinite}
@@ -32,8 +32,8 @@
 @keyframes pp-breathe{0%,100%{opacity:1}50%{opacity:.45}}
 .is-ready .loader{opacity:0;visibility:hidden}
 </style>
-<noscript><style>.loader{display:none}.reveal{opacity:1!important;-webkit-transform:none!important;transform:none!important}</style></noscript>
-<link rel="stylesheet" href="assets/style.css?v=d655ef21">
+<noscript><style>.loader{display:none}.reveal{opacity:1!important;-webkit-transform:none!important;transform:none!important}#panel-video[hidden]{display:block!important}.g-tabs{display:none}</style></noscript>
+<link rel="stylesheet" href="assets/style.css?v=05ab2a61">
 <script>document.documentElement.className=document.documentElement.className.replace("no-js","js");</script>
 </head>
 <body>
@@ -42,20 +42,38 @@
 <header class="g-head reveal">
   <div class="g-brand">
     <img class="g-logo" src="assets/brand/logo-ink.png" alt="프롬프트 포에트 로고" width="30">
-    <p class="exhibition">AI 창작 동아리 〈프롬프트 포에트〉 전시</p>
+    <p class="exhibition">동아리 〈프롬프트 포에트〉 첫 번째 전시</p>
   </div>
-  <h1 class="g-title">낯선 도구, 들여다본 마음</h1>
+  <div class="g-intro">
+    <div class="g-titles">
+      <h1 class="g-title">낯선 도구, 들여다본 마음</h1>
+    </div>
+    <!-- 전시 서문: 처음엔 접혀 있고, 버튼을 누르면 펼쳐짐 (JS 없이도 동작하는 details 사용) -->
+    <details class="g-pref" id="preface">
+      <summary class="g-pref-btn"><span class="t-open">전시 서문 보기</span><span class="t-close">전시 서문 닫기</span><span class="g-pref-icon" aria-hidden="true"></span></summary>
+      <div class="g-preface" lang="ko">
+        <h2 class="g-pref-title">AI와 함께한 창작의 첫 기록</h2>
+    <p>우리는 저마다의 언어로 세계를 바라보고, 자신만의 이야기를 품고 살아갑니다. 동아리 <strong>“프롬프트 포에트”</strong>는 그 이야기를 시로 꺼내어 보는 데서 시작되었습니다. 4월의 토요일 아침, AI라는 낯선 도구를 손에 쥔 참여자들이 한자리에 모였습니다. 각자의 이야기를 시로 쓰며 스스로 창작의 주체가 되어보고, AI를 활용해 예술적 표현의 영역도 넓혀보았습니다. 정해진 답을 따라가기보다 서로 묻고 배우며 천천히 나아갔습니다. 강사 또한 함께 시도하고 배우는 동료로서 이 자리에 있었습니다. 그렇게 우리는 AI를 능숙하게 다루는 것보다, <strong>‘AI를 통해 무엇을 바라보고 무엇을 이야기할 것인가’</strong>를 오래 생각했습니다.</p>
+    <p>그 과정에서 각자의 마음속에 머물러 있던 이야기들이 하나씩 모습을 드러냈습니다. 바쁜 일상 속에서 무심히 지나쳤던 꽃과 풍경을 다시 바라보고, 은퇴 이후의 삶을 생각하고, 아이들과 함께하는 시간 안에서 가족의 사랑을 발견하기도 했습니다.</p>
+    <p>낯설었던 도구는 어느새 자신의 생각을 표현하는 또 하나의 방법이 되었습니다. 한 편의 시에서 시작된 마음은 그림이 되고, 음악이 되고, 영상과 다양한 작품으로 이어졌습니다. 이번 전시는 그렇게 함께 배우고 만들며 지나온 시간의 기록입니다. 오래 마음속에 머물렀던 것들이 비로소 모습을 갖춘 이 자리에서, 각자가 발견한 <strong>‘나다움’</strong>과 그 안에 담긴 마음을 천천히 만나보시기 바랍니다.</p>
+      </div>
+    </details>
+  </div>
   <div class="g-bar">
-    <p class="g-count">작품 10점</p>
+    <div class="g-tabs" role="tablist" aria-label="작품 종류">
+      <button type="button" class="g-tab is-on" role="tab" id="tab-image" aria-controls="panel-image" aria-selected="true" data-tab="image">이미지 <span class="g-num">10</span></button>
+      <button type="button" class="g-tab" role="tab" id="tab-video" aria-controls="panel-video" aria-selected="false" data-tab="video">영상 <span class="g-num">7</span></button>
+    </div>
   </div>
 </header>
 
 <main>
-  <!-- 전체 작품: 작품을 누르면 각 작품 페이지로 이동 -->
-  <ul class="g-grid reveal">
+  <!-- 이미지: 작품을 누르면 각 작품 페이지로 이동 -->
+  <section id="panel-image" role="tabpanel" aria-labelledby="tab-image">
+    <ul class="g-grid reveal">
     <li class="g-item reveal" style="-webkit-transition-delay:0.35s;transition-delay:0.35s"><a class="g-link" href="01/"><div class="g-tile frame" style="background-color:#e4eef4"><picture><source type="image/webp" srcset="01/img/01-720.webp 720w, 01/img/01-1191.webp 1191w" sizes="(min-width: 1100px) 22vw, (min-width: 720px) 30vw, 45vw"><img class="g-img" src="01/img/01-720.jpg" srcset="01/img/01-720.jpg 720w, 01/img/01-1191.jpg 1191w" sizes="(min-width: 1100px) 22vw, (min-width: 720px) 30vw, 45vw" width="1191" height="1683" alt="구혜란, 〈밝은 에너지와 행운의 바다〉" decoding="async" draggable="false" data-wait=""></picture></div><div class="g-cap"><p class="g-artist">구혜란</p><p class="g-name">밝은 에너지와 행운의 바다</p></div></a></li>
     <li class="g-item reveal" style="-webkit-transition-delay:0.42s;transition-delay:0.42s"><a class="g-link" href="02/"><div class="g-tile frame" style="background-color:#e3e1cc"><picture><source type="image/webp" srcset="02/img/02-707.webp 707w" sizes="(min-width: 1100px) 22vw, (min-width: 720px) 30vw, 45vw"><img class="g-img" src="02/img/02-707.jpg" srcset="02/img/02-707.jpg 707w" sizes="(min-width: 1100px) 22vw, (min-width: 720px) 30vw, 45vw" width="707" height="1000" alt="김기홍, 〈춤〉" decoding="async" draggable="false" data-wait=""></picture></div><div class="g-cap"><p class="g-artist">김기홍</p><p class="g-name">춤</p></div></a></li>
-    <li class="g-item reveal" style="-webkit-transition-delay:0.49s;transition-delay:0.49s"><a class="g-link" href="03/"><div class="g-tile frame" style="background-color:#392f1e"><picture><source type="image/webp" srcset="03/img/03-720.webp 720w, 03/img/03-1055.webp 1055w" sizes="(min-width: 1100px) 22vw, (min-width: 720px) 30vw, 45vw"><img class="g-img" src="03/img/03-720.jpg" srcset="03/img/03-720.jpg 720w, 03/img/03-1055.jpg 1055w" sizes="(min-width: 1100px) 22vw, (min-width: 720px) 30vw, 45vw" width="1055" height="1491" alt="김용희, 〈달팽이〉" decoding="async" draggable="false" data-wait=""></picture></div><div class="g-cap"><p class="g-artist">김용희</p><p class="g-name">달팽이</p></div></a></li>
+    <li class="g-item reveal" style="-webkit-transition-delay:0.49s;transition-delay:0.49s"><a class="g-link" href="03/"><div class="g-tile frame" style="background-color:#3c301f"><picture><source type="image/webp" srcset="03/img/03-720.webp 720w, 03/img/03-1200.webp 1200w, 03/img/03-1800.webp 1800w" sizes="(min-width: 1100px) 22vw, (min-width: 720px) 30vw, 45vw"><img class="g-img" src="03/img/03-720.jpg" srcset="03/img/03-720.jpg 720w, 03/img/03-1200.jpg 1200w, 03/img/03-1800.jpg 1800w" sizes="(min-width: 1100px) 22vw, (min-width: 720px) 30vw, 45vw" width="1823" height="2576" alt="김용희, 〈달팽이〉" decoding="async" draggable="false" data-wait=""></picture></div><div class="g-cap"><p class="g-artist">김용희</p><p class="g-name">달팽이</p></div></a></li>
     <li class="g-item reveal" style="-webkit-transition-delay:0.56s;transition-delay:0.56s"><a class="g-link" href="04/"><div class="g-tile frame" style="background-color:#e5ebf3"><picture><source type="image/webp" srcset="04/img/04-720.webp 720w, 04/img/04-1200.webp 1200w, 04/img/04-1800.webp 1800w" sizes="(min-width: 1100px) 22vw, (min-width: 720px) 30vw, 45vw"><img class="g-img" src="04/img/04-720.jpg" srcset="04/img/04-720.jpg 720w, 04/img/04-1200.jpg 1200w, 04/img/04-1800.jpg 1800w" sizes="(min-width: 1100px) 22vw, (min-width: 720px) 30vw, 45vw" width="4961" height="7016" alt="김희진, 〈다음 숨〉" decoding="async" draggable="false" data-wait=""></picture></div><div class="g-cap"><p class="g-artist">김희진</p><p class="g-name">다음 숨</p></div></a></li>
     <li class="g-item reveal" style="-webkit-transition-delay:0.63s;transition-delay:0.63s"><a class="g-link" href="05/"><div class="g-tile frame" style="background-color:#ccd5e3"><picture><source type="image/webp" srcset="05/img/05-720.webp 720w, 05/img/05-1191.webp 1191w" sizes="(min-width: 1100px) 22vw, (min-width: 720px) 30vw, 45vw"><img class="g-img" src="05/img/05-720.jpg" srcset="05/img/05-720.jpg 720w, 05/img/05-1191.jpg 1191w" sizes="(min-width: 1100px) 22vw, (min-width: 720px) 30vw, 45vw" width="1191" height="1683" alt="박기철, 〈그대는 지금 어디로 가고 있나요?〉" decoding="async" draggable="false" loading="lazy"></picture></div><div class="g-cap"><p class="g-artist">박기철</p><p class="g-name">그대는 지금 어디로 가고 있나요?</p></div></a></li>
     <li class="g-item reveal" style="-webkit-transition-delay:0.70s;transition-delay:0.70s"><a class="g-link" href="06/"><div class="g-tile frame" style="background-color:#e8dac7"><picture><source type="image/webp" srcset="06/img/06-720.webp 720w, 06/img/06-1200.webp 1200w, 06/img/06-1491.webp 1491w" sizes="(min-width: 1100px) 22vw, (min-width: 720px) 30vw, 45vw"><img class="g-img" src="06/img/06-720.jpg" srcset="06/img/06-720.jpg 720w, 06/img/06-1200.jpg 1200w, 06/img/06-1491.jpg 1491w" sizes="(min-width: 1100px) 22vw, (min-width: 720px) 30vw, 45vw" width="1491" height="1055" alt="박세영, 〈아직은, 초여름〉" decoding="async" draggable="false" loading="lazy"></picture></div><div class="g-cap"><p class="g-artist">박세영</p><p class="g-name">아직은, 초여름</p></div></a></li>
@@ -63,9 +81,27 @@
     <li class="g-item reveal" style="-webkit-transition-delay:0.84s;transition-delay:0.84s"><a class="g-link" href="08/"><div class="g-tile frame" style="background-color:#e6d7c9"><picture><source type="image/webp" srcset="08/img/08-720.webp 720w, 08/img/08-990.webp 990w" sizes="(min-width: 1100px) 22vw, (min-width: 720px) 30vw, 45vw"><img class="g-img" src="08/img/08-720.jpg" srcset="08/img/08-720.jpg 720w, 08/img/08-990.jpg 990w" sizes="(min-width: 1100px) 22vw, (min-width: 720px) 30vw, 45vw" width="990" height="1400" alt="유주영, 〈시멘트 심장〉" decoding="async" draggable="false" loading="lazy"></picture></div><div class="g-cap"><p class="g-artist">유주영</p><p class="g-name">시멘트 심장</p></div></a></li>
     <li class="g-item reveal" style="-webkit-transition-delay:0.91s;transition-delay:0.91s"><a class="g-link" href="09/"><div class="g-tile frame" style="background-color:#e8dbc7"><picture><source type="image/webp" srcset="09/img/09-720.webp 720w, 09/img/09-991.webp 991w" sizes="(min-width: 1100px) 22vw, (min-width: 720px) 30vw, 45vw"><img class="g-img" src="09/img/09-720.jpg" srcset="09/img/09-720.jpg 720w, 09/img/09-991.jpg 991w" sizes="(min-width: 1100px) 22vw, (min-width: 720px) 30vw, 45vw" width="991" height="1400" alt="이석기, 〈빈 손으로 다시 서다〉" decoding="async" draggable="false" loading="lazy"></picture></div><div class="g-cap"><p class="g-artist">이석기</p><p class="g-name">빈 손으로 다시 서다</p></div></a></li>
     <li class="g-item reveal" style="-webkit-transition-delay:0.91s;transition-delay:0.91s"><a class="g-link" href="10/"><div class="g-tile frame" style="background-color:#453b2b"><picture><source type="image/webp" srcset="10/img/10-720.webp 720w, 10/img/10-1024.webp 1024w" sizes="(min-width: 1100px) 22vw, (min-width: 720px) 30vw, 45vw"><img class="g-img" src="10/img/10-720.jpg" srcset="10/img/10-720.jpg 720w, 10/img/10-1024.jpg 1024w" sizes="(min-width: 1100px) 22vw, (min-width: 720px) 30vw, 45vw" width="1024" height="1024" alt="지슬미, 〈정확한 거리〉" decoding="async" draggable="false" loading="lazy"></picture></div><div class="g-cap"><p class="g-artist">지슬미</p><p class="g-name">정확한 거리</p></div></a></li>
-  </ul>
+    </ul>
+  </section>
+
+  <!-- 영상: 16:9 썸네일을 크게. 누르면 각 영상 페이지로 이동 -->
+  <section id="panel-video" role="tabpanel" aria-labelledby="tab-video" hidden>
+    <ul class="v-grid">
+      <li class="v-item"><a class="v-link" href="v01/"><div class="v-tile frame"><picture><source type="image/webp" srcset="v01/img/v01-720.webp 720w, v01/img/v01-1200.webp 1200w, v01/img/v01-1800.webp 1800w" sizes="(min-width: 720px) 48vw, 92vw"><img class="v-img" src="v01/img/v01-1200.jpg" srcset="v01/img/v01-720.jpg 720w, v01/img/v01-1200.jpg 1200w, v01/img/v01-1800.jpg 1800w" sizes="(min-width: 720px) 48vw, 92vw" width="2570" height="1614" alt="김기홍, 〈별나무로 가는 기차〉 영상" loading="lazy" decoding="async" draggable="false"></picture><span class="v-play" aria-hidden="true"></span></div><div class="v-cap"><p class="g-artist">김기홍</p><p class="g-name">별나무로 가는 기차 <span class="v-dur">(1분 32초)</span></p></div></a></li>
+      <li class="v-item"><a class="v-link" href="v02/"><div class="v-tile frame"><picture><source type="image/webp" srcset="v02/img/v02-720.webp 720w, v02/img/v02-1200.webp 1200w, v02/img/v02-1800.webp 1800w" sizes="(min-width: 720px) 48vw, 92vw"><img class="v-img" src="v02/img/v02-1200.jpg" srcset="v02/img/v02-720.jpg 720w, v02/img/v02-1200.jpg 1200w, v02/img/v02-1800.jpg 1800w" sizes="(min-width: 720px) 48vw, 92vw" width="1890" height="1052" alt="김희진, 〈영상1〉 영상" loading="lazy" decoding="async" draggable="false"></picture><span class="v-play" aria-hidden="true"></span></div><div class="v-cap"><p class="g-artist">김희진</p><p class="g-name">영상1 <span class="v-dur">(1분 30초)</span></p></div></a></li>
+      <li class="v-item"><a class="v-link" href="v03/"><div class="v-tile frame"><picture><source type="image/webp" srcset="v03/img/v03-720.webp 720w, v03/img/v03-1200.webp 1200w, v03/img/v03-1800.webp 1800w" sizes="(min-width: 720px) 48vw, 92vw"><img class="v-img" src="v03/img/v03-1200.jpg" srcset="v03/img/v03-720.jpg 720w, v03/img/v03-1200.jpg 1200w, v03/img/v03-1800.jpg 1800w" sizes="(min-width: 720px) 48vw, 92vw" width="1872" height="1028" alt="김희진, 〈영상2〉 영상" loading="lazy" decoding="async" draggable="false"></picture><span class="v-play" aria-hidden="true"></span></div><div class="v-cap"><p class="g-artist">김희진</p><p class="g-name">영상2 <span class="v-dur">(1분 30초)</span></p></div></a></li>
+      <li class="v-item"><a class="v-link" href="v04/"><div class="v-tile frame"><picture><source type="image/webp" srcset="v04/img/v04-720.webp 720w, v04/img/v04-1200.webp 1200w, v04/img/v04-1800.webp 1800w" sizes="(min-width: 720px) 48vw, 92vw"><img class="v-img" src="v04/img/v04-1200.jpg" srcset="v04/img/v04-720.jpg 720w, v04/img/v04-1200.jpg 1200w, v04/img/v04-1800.jpg 1800w" sizes="(min-width: 720px) 48vw, 92vw" width="1894" height="1056" alt="원하은, 〈ff〉 영상" loading="lazy" decoding="async" draggable="false"></picture><span class="v-play" aria-hidden="true"></span></div><div class="v-cap"><p class="g-artist">원하은</p><p class="g-name">ff <span class="v-dur">(1분 27초)</span></p></div></a></li>
+      <li class="v-item"><a class="v-link" href="v05/"><div class="v-tile frame"><picture><source type="image/webp" srcset="v05/img/v05-720.webp 720w, v05/img/v05-1200.webp 1200w, v05/img/v05-1800.webp 1800w" sizes="(min-width: 720px) 48vw, 92vw"><img class="v-img" src="v05/img/v05-1200.jpg" srcset="v05/img/v05-720.jpg 720w, v05/img/v05-1200.jpg 1200w, v05/img/v05-1800.jpg 1800w" sizes="(min-width: 720px) 48vw, 92vw" width="2038" height="1146" alt="유명선, 〈늦멀미〉 영상" loading="lazy" decoding="async" draggable="false"></picture><span class="v-play" aria-hidden="true"></span></div><div class="v-cap"><p class="g-artist">유명선</p><p class="g-name">늦멀미 <span class="v-dur">(21초)</span></p></div></a></li>
+      <li class="v-item"><a class="v-link" href="v06/"><div class="v-tile frame"><picture><source type="image/webp" srcset="v06/img/v06-720.webp 720w, v06/img/v06-1200.webp 1200w, v06/img/v06-1800.webp 1800w" sizes="(min-width: 720px) 48vw, 92vw"><img class="v-img" src="v06/img/v06-1200.jpg" srcset="v06/img/v06-720.jpg 720w, v06/img/v06-1200.jpg 1200w, v06/img/v06-1800.jpg 1800w" sizes="(min-width: 720px) 48vw, 92vw" width="1864" height="1038" alt="지슬미, 〈정확한 거리1〉 영상" loading="lazy" decoding="async" draggable="false"></picture><span class="v-play" aria-hidden="true"></span></div><div class="v-cap"><p class="g-artist">지슬미</p><p class="g-name">정확한 거리1 <span class="v-dur">(2분 19초)</span></p></div></a></li>
+      <li class="v-item"><a class="v-link" href="v07/"><div class="v-tile frame"><picture><source type="image/webp" srcset="v07/img/v07-720.webp 720w, v07/img/v07-1200.webp 1200w, v07/img/v07-1800.webp 1800w" sizes="(min-width: 720px) 48vw, 92vw"><img class="v-img" src="v07/img/v07-1200.jpg" srcset="v07/img/v07-720.jpg 720w, v07/img/v07-1200.jpg 1200w, v07/img/v07-1800.jpg 1800w" sizes="(min-width: 720px) 48vw, 92vw" width="1876" height="1052" alt="지슬미, 〈정확한 거리2〉 영상" loading="lazy" decoding="async" draggable="false"></picture><span class="v-play" aria-hidden="true"></span></div><div class="v-cap"><p class="g-artist">지슬미</p><p class="g-name">정확한 거리2 <span class="v-dur">(2분 19초)</span></p></div></a></li>
+    </ul>
+  </section>
 </main>
 
-<script src="assets/main.js?v=d655ef21" defer></script>
+<footer class="site-foot">
+  <p><span class="foot-k">주최 및 진행</span>내를 건너 숲으로 도서관</p>
+</footer>
+
+<script src="assets/main.js?v=05ab2a61" defer></script>
 </body>
 </html>
