@@ -316,6 +316,21 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 .player-box.is-theater .v-frame,.player-box.is-theater .v-start{
   top:0;left:0;width:100%;height:100%;-webkit-transform:none;transform:none;
 }
+/* 휴대폰 세로 화면: 크게 보기 화면 전체를 90도 돌려 가로 영상처럼 꽉 채움
+   (아이폰 사파리는 화면을 강제로 가로로 돌리는 기능이 없어서 이 방법을 씀.
+    휴대폰을 실제로 가로로 돌리면 돌림 없이 그대로 꽉 참) */
+@media (orientation:portrait){
+  .player-box.is-theater.is-rotate{
+    top:0;left:100%;right:auto;bottom:auto;
+    width:100vh;height:100vw;
+    -webkit-transform-origin:0 0;transform-origin:0 0;
+    -webkit-transform:rotate(90deg);transform:rotate(90deg);
+  }
+  @supports (height:100dvh){
+    .player-box.is-theater.is-rotate{width:100dvh}
+  }
+  .player-box.is-theater.is-rotate .v-close{top:14px;right:max(14px, env(safe-area-inset-bottom))}
+}
 .player-box.is-theater .v-close{
   display:-webkit-box;display:-webkit-flex;display:flex;-webkit-box-align:center;-webkit-align-items:center;align-items:center;
   position:absolute;z-index:3;

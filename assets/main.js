@@ -79,6 +79,7 @@
     if (!box || theater) return;
     theater = true;
     addClass(box, "is-theater");
+    if (isPhone) addClass(box, "is-rotate");   // 휴대폰을 세로로 들고 있어도 영상은 가로로 꽉 차게 (CSS가 90도 돌림)
     addClass(root, "theater-on");
     if (window.history && history.pushState) {   // 뒤로가기를 누르면 '크게 보기'만 닫히도록
       try { history.pushState({ theater: 1 }, ""); pushed = true; } catch (err) {}
@@ -97,7 +98,7 @@
   function closeTheater(fromHistory) {
     if (!theater) return;
     theater = false;
-    box.className = box.className.replace(/\s*is-theater/g, "");
+    box.className = box.className.replace(/\s*is-theater/g, "").replace(/\s*is-rotate/g, "");
     root.className = root.className.replace(/\s*theater-on/g, "");
     try { if (screen.orientation && screen.orientation.unlock) screen.orientation.unlock(); } catch (err) {}
     if (fsElement()) {
