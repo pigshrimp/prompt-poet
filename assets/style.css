@@ -280,7 +280,8 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 }
 .player-box{position:relative;height:0;padding-top:56.25%;background:#000;overflow:hidden;
   box-shadow:0 30px 80px -30px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.05)}
-.v-poster,.v-frame{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.v-poster,.v-frame,.v-native{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.v-native{background:#000;-o-object-fit:contain;object-fit:contain;outline:none}
 .v-poster{-o-object-fit:cover;object-fit:cover;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
 .v-frame{background:#000}
 .v-start{position:absolute;top:0;left:0;width:100%;height:100%;display:block;cursor:pointer;-webkit-tap-highlight-color:transparent}
@@ -313,7 +314,7 @@ a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offs
 }
 /* 플레이어를 화면 전체 크기로 → 구글 드라이브가 영상을 가운데에 온전히 맞춰 넣음
    (아이폰에서 16:9 작은 상자에 넣으면 드라이브가 영상을 아래로 밀어 잘리게 그림) */
-.player-box.is-theater .v-frame,.player-box.is-theater .v-start{
+.player-box.is-theater .v-frame,.player-box.is-theater .v-start,.player-box.is-theater .v-native{
   top:0;left:0;width:100%;height:100%;-webkit-transform:none;transform:none;
 }
 /* 휴대폰 세로 화면: 크게 보기 화면 전체를 90도 돌려 가로 영상처럼 꽉 채움

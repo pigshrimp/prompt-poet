@@ -51,7 +51,7 @@
     }
     return false;
   }
-  function block(e) { if (onArt(e.target)) { e.preventDefault(); return false; } }
+  function block(e) { if (onArt(e.target) || (e.target && e.target.tagName === "VIDEO")) { e.preventDefault(); return false; } }
   document.addEventListener("contextmenu", block);
   document.addEventListener("dragstart", block);
 
@@ -61,8 +61,19 @@
   var isPhone = window.matchMedia && window.matchMedia("(pointer:coarse) and (max-width:900px)").matches;
   var box = document.querySelector(".player-box");
   var startLink = box && box.querySelector(".v-start");   // 썸네일+재생 버튼 (닫을 때 되돌리기용)
+  // 영상 파일(video.mp4)은 휴대폰·태블릿(손가락으로 누르는 기기)에서만 사용.
+  // PC(마우스)는 구글 드라이브 고화질 재생기를 쓰므로 영상 파일을 빼 둠 (불필요한 다운로드 방지)
+  var isTouch = window.matchMedia && window.matchMedia("(pointer:coarse)").matches;
+  var nativeVideo = box && box.querySelector("video.v-native");
+  if (nativeVideo && !isTouch) { nativeVideo.parentNode.removeChild(nativeVideo); nativeVideo = null; }
   function startPlayer() {
     var a = box && box.querySelector(".v-start");
+    if (nativeVideo) {   // 사이트에 넣은 영상 파일: 썸네일을 걷고 바로 재생
+      if (a) a.parentNode.removeChild(a);
+      nativeVideo.controls = true;
+      try { var pr = nativeVideo.play(); if (pr && pr["catch"]) pr["catch"](function () {}); } catch (err) {}
+      return;
+    }
     if (!a) return;
     var f = document.createElement("iframe");
     f.className = "v-frame";
@@ -107,6 +118,14 @@
     if (pushed && !fromHistory) { pushed = false; try { history.back(); } catch (err) {} }
     pushed = false;
     // 휴대폰: 작은 화면 안에서는 드라이브 플레이어가 잘려 보이므로, 닫으면 원래 썸네일+재생 버튼으로 되돌림
+    if (nativeVideo) {
+      if (isPhone) {   // 휴대폰: 닫으면 멈추고 처음 화면(썸네일+재생 버튼)으로
+        try { nativeVideo.pause(); } catch (err) {}
+        nativeVideo.controls = false;
+        if (startLink && !startLink.parentNode) box.insertBefore(startLink, nativeVideo.nextSibling);
+      }
+      return;
+    }
     if (isPhone && startLink) {
       var f = box.querySelector(".v-frame");
       if (f) box.replaceChild(startLink, f);
@@ -122,7 +141,7 @@
     a.addEventListener("click", function (e) {
       e.preventDefault();
       startPlayer();
-      if (isPhone) openTheater();
+      if (isPhone || nativeVideo) openTheater();   // 휴대폰·태블릿: 누르면 바로 크게
     });
   });
   each(document.querySelectorAll(".v-full"), function (btn) {
