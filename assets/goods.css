@@ -108,7 +108,7 @@
 .gd-cloth{position:absolute;top:0;left:0;width:100%;height:100%;display:none}
 .gd-cloth-on .gd-cloth{display:block}
 .gd-cloth-on .gd-scarf-still{visibility:hidden}
-.gd-scarf-still{padding:0 7%}
+.gd-scarf-still{padding:0 7%;height:100%;-webkit-box-sizing:border-box;box-sizing:border-box}
 .gd-scarf-still img{box-shadow:0 14px 26px -10px rgba(40,32,20,.35)}
 
 /* 캔버스: 두께가 있는 액자형 캔버스, 살짝 돌아 옆면(그림이 감긴 면)이 보임 */
@@ -143,3 +143,10 @@
   .gd-sweatshirt .gd-obj img,.gd-fan .gd-obj img{-webkit-filter:none;filter:none}
   .gd-obj{will-change:auto}
 }
+
+/* 바닥 그림자는 항상 제품 뒤에 (세로로 긴 스카프가 그림자 위로 내려와도 가려지지 않게) */
+.gd-obj{z-index:1}
+.gd-shadow{z-index:0}
+.gd-screen .gd-shadow{bottom:0}             /* 가림막만 조금 아래 (스카프는 원래 위치 그대로) */
+/* 줄은 좌우로만 움직이고 위아래 스크롤은 생기지 않게 */
+.gd-list{overflow-y:hidden;padding-bottom:10px}

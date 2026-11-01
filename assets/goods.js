@@ -30,7 +30,10 @@
     var side = W * 0.08;                     // 좌우 여유 (흔들려도 잘리지 않게)
     var sw = W - side * 2;                   // 스카프 폭
     var topY = H * 0.04;                     // 위쪽 고정선
-    var sh = Math.min(H - topY - H * 0.02, sw * img.height / img.width);
+    // 세로로 긴 그림은 높이에 맞춰 폭을 줄이고 가운데 정렬 (비율 유지)
+    var availH = H - topY - H * 0.02, ratio = img.height / img.width;
+    var sh = sw * ratio;
+    if (sh > availH) { sh = availH; sw = sh / ratio; side = (W - sw) / 2; }
     var amp = W * 0.055;                     // 아래 끝 흔들림 폭
     var step = Math.max(2, Math.round(H / 200));
     var time = t / 1000 + item.seed;
