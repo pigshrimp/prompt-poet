@@ -65,7 +65,7 @@
   // PC(마우스)는 구글 드라이브 고화질 재생기를 쓰므로 영상 파일을 빼 둠 (불필요한 다운로드 방지)
   var isTouch = window.matchMedia && window.matchMedia("(pointer:coarse)").matches;
   var nativeVideo = box && box.querySelector("video.v-native");
-  if (nativeVideo && !isTouch) { nativeVideo.parentNode.removeChild(nativeVideo); nativeVideo = null; }
+  if (nativeVideo && !isTouch && !nativeVideo.getAttribute("data-all")) { nativeVideo.parentNode.removeChild(nativeVideo); nativeVideo = null; }
   function startPlayer() {
     var a = box && box.querySelector(".v-start");
     if (nativeVideo) {   // 사이트에 넣은 영상 파일: 썸네일을 걷고 바로 재생
