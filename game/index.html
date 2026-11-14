@@ -582,10 +582,14 @@ function go(screen,round){clearT();stopMedia();window._keys={};S.screen=screen;i
 function stopMedia(){cancelAnimationFrame(window._raf);document.querySelectorAll('video').forEach(v=>{try{v.pause()}catch(e){}})}
 function render(){renderScore();({intro,menu,r1,rv,r3,r4,rf,rl,end})[S.screen==='round'?S.round:S.screen]()}
 
-function flowBG(){const MOB=matchMedia('(max-width:760px)').matches;const imgs=['01','02','03','04','05','06','07','08','09','10'];const layers=[{n:7,w:[7,10],blur:7,op:.22,dur:[95,120]},{n:6,w:[11,14],blur:3,op:.38,dur:[70,90]},{n:5,w:[15,19],blur:0,op:.62,dur:[48,62]}];
- let out='',k=0;const sh=shuffle(imgs.concat(imgs));
- layers.forEach((L,li)=>{for(let i=0;i<L.n;i++){const w=(L.w[0]+Math.random()*(L.w[1]-L.w[0]))*(MOB?2.4:1),x=(i+.15+Math.random()*.7)/L.n*100-w/2,d=L.dur[0]+Math.random()*(L.dur[1]-L.dur[0]),dl=-Math.random()*d,r=(Math.random()-.5)*4;
-  out+=`<img class="fl-tile" src="media/s${sh[k++%sh.length]}.jpg" style="left:${x.toFixed(1)}vw;width:${w.toFixed(1)}vw;filter:blur(${L.blur}px);opacity:${L.op};z-index:${li};animation-duration:${d.toFixed(0)}s;animation-delay:${dl.toFixed(1)}s;--r:${r.toFixed(1)}deg">`}});
+function flowBG(){const MOB=matchMedia('(max-width:760px)').matches;const imgs=['01','02','03','04','05','06','07','08','09'];
+ // 3겹(먼 곳·중간·가까운 곳) 각각 시화 9장이 01→09 순서대로 아래에서 올라옴
+ const layers=[{w:8.5,blur:7,op:.22,dur:126,x0:.08},{w:12.5,blur:3,op:.4,dur:90,x0:.55},{w:17,blur:0,op:.66,dur:63,x0:.3}];
+ const xs=[.12,.62,.32,.82,.22,.72,.02,.47,.9];
+ let out='';
+ layers.forEach((L,li)=>{const step=L.dur/imgs.length,w=L.w*(MOB?2.4:1);
+  imgs.forEach((im,i)=>{const x=((xs[i]+L.x0)%1)*(100-w*.6)-w*.2,dl=i*step-L.dur,r=((i*37+li*11)%9-4)*.5;
+   out+=`<img class="fl-tile" src="media/s${im}.jpg" style="left:${x.toFixed(1)}vw;width:${w.toFixed(1)}vw;filter:blur(${L.blur}px);opacity:${L.op};z-index:${li};animation-duration:${L.dur}s;animation-delay:${dl.toFixed(1)}s;--r:${r.toFixed(1)}deg">`})});
  return `<div class="bgflow">${out}<div class="bgveil"></div></div>`}
 function intro(){
  stage.innerHTML=flowBG()+`<div class="intro center fade">
