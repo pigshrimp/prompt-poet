@@ -48,7 +48,7 @@ button{font-family:inherit;cursor:pointer;border:none;color:inherit;background:n
 /* menu */
 .menu{width:min(92vw,1500px)}
 .menu h2{font-size:clamp(28px,3.2vw,54px);margin:1.2vh 0 6vh}
-.rounds{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));position:relative;border-top:1px solid var(--line)}
+.rounds{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));position:relative;border-top:1px solid var(--line)}
 .rcard{text-align:left;padding:3vh 1.4vw 3vh;position:relative;border-right:1px solid var(--line);transition:background .3s}
 .rcard:last-child{border-right:none}
 .rcard::before{content:'';position:absolute;top:-5px;left:1.4vw;width:9px;height:9px;border-radius:50%;background:var(--night);border:1px solid var(--gold)}
@@ -310,6 +310,76 @@ button:disabled{opacity:.3;cursor:default}
  .roll p{font-size:18px}.roll h3{font-size:16px;margin:5vh 0 1.2vh}
  .credits{position:fixed;top:50px}
 }
+
+
+.nins{flex:1;display:flex;flex-direction:column;justify-content:center;gap:2.6vh;min-height:0}
+.nins .ihd{text-align:center;display:flex;flex-direction:column;align-items:center;gap:1vh}
+.nlive.gold{color:var(--gold);border-color:rgba(233,201,138,.5)}.nlive.gold::before{background:var(--gold)}
+.nins h2,.nitem h3,.nitem p{word-break:keep-all}
+.nins h2{font-family:var(--serif);font-weight:800;font-size:clamp(28px,3.2vw,56px)}
+.nins .ihd p{color:var(--dim);font-size:clamp(15px,1.3vw,22px)}
+.igrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2vw}
+.nitem.icard{display:flex;flex-direction:column;gap:.6em;align-items:flex-start;padding:2.4vh 1.4vw;transform:translateY(24px)}
+.nitem.icard.on{transform:none}
+.icard .ino{font-family:var(--num);font-size:clamp(26px,2.4vw,42px);color:var(--gold);line-height:1}
+.icard h3{font-size:clamp(18px,1.55vw,28px)}
+.ifoot.nitem{display:block;text-align:center;font-family:var(--serif);font-size:clamp(17px,1.6vw,28px);line-height:1.6;white-space:pre-line;color:var(--gold);border:none;background:none;transform:translateY(16px)}
+.ifoot.nitem.on{transform:none}
+@media (max-width:760px){.igrid{grid-template-columns:1fr;gap:12px}.nitem.icard{padding:14px 16px}.ifoot.nitem{font-size:17px}}
+
+/* 누구의 시일까: 시 전문 */
+.qbox.pfmode{justify-content:center}
+.pfull{width:min(100%,1300px);display:flex;flex-direction:column;align-items:center;gap:3vh}
+.pfh{text-align:center}
+.pfa{font-family:var(--serif);font-weight:800;font-size:clamp(34px,3.6vw,64px);color:var(--gold);line-height:1.1}
+.pft{margin-top:.5em;font-family:var(--serif);font-size:clamp(17px,1.5vw,26px);color:var(--dim)}
+.pfb{font-family:var(--serif);font-size:clamp(15px,1.3vw,22px);line-height:1.75;text-align:left;column-gap:4vw;column-rule:1px solid var(--line);padding:2.4vh 3vw;border-top:1px solid var(--line);border-bottom:1px solid var(--line);max-height:62vh}
+.pfb.c1{columns:1;font-size:clamp(17px,1.55vw,26px)}.pfb.c2{columns:2}.pfb.c3{columns:3;font-size:clamp(14px,1.15vw,19px)}
+.pfb div{break-inside:avoid;opacity:.82;word-break:keep-all}
+.pfb div.hit{opacity:1;color:var(--gold)}
+@media (max-width:760px){.pfb,.pfb.c2,.pfb.c3{columns:1;max-height:none;font-size:16px;padding:16px 4px}.pfa{font-size:34px}}
+/* ===== AI 뉴스룸 ===== */
+.news{flex:1;display:flex;flex-direction:column;gap:2.2vh;min-height:0}
+.ntl{display:flex;align-items:center;gap:0;position:relative;margin:0 1vw}
+.ntl::before{content:'';position:absolute;left:0;right:0;top:50%;height:1px;background:var(--line)}
+.ntl .m{flex:1;display:flex;flex-direction:column;align-items:center;gap:.6vh;position:relative;font-family:var(--num);font-size:clamp(12px,1vw,16px);color:var(--dim);letter-spacing:.08em}
+.ntl .m i{width:9px;height:9px;border-radius:50%;background:var(--night);border:1px solid var(--dim);display:block;transition:.4s}
+.ntl .m.past i{background:var(--dim)}
+.ntl .m.on{color:var(--gold)}.ntl .m.on i{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 5px rgba(233,201,138,.18);transform:scale(1.4)}
+.nbody{flex:1;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,2fr);gap:3.5vw;align-items:center;min-height:0}
+.nmon{display:flex;flex-direction:column;gap:1.2vh}
+.nlive{display:inline-flex;align-items:center;gap:.5em;font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(11px,.85vw,14px);letter-spacing:.18em;color:#ff8a8a;border:1px solid rgba(255,138,138,.45);border-radius:4px;padding:.35em .7em;width:max-content}
+.nlive::before{content:'';width:7px;height:7px;border-radius:50%;background:#ff6b6b;animation:blink 1.2s steps(1) infinite}
+.nmon .big{font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(90px,11vw,200px);line-height:.85;color:var(--ink);letter-spacing:-.04em}
+.nmon .big small{font-size:.28em;color:var(--gold);letter-spacing:0;margin-left:.1em}
+.nmon .en{font-family:var(--num);font-style:italic;font-size:clamp(18px,1.7vw,30px);color:var(--dim);letter-spacing:.12em}
+.nmon .us{margin-top:2.4vh;padding:1.2em 1.3em;border-left:2px solid var(--gold);background:rgba(233,201,138,.06);border-radius:0 10px 10px 0}
+.nmon .us b{display:block;font-size:clamp(11px,.85vw,14px);letter-spacing:.2em;color:var(--gold);margin-bottom:.5em;font-weight:400}
+.nmon .us span{font-family:var(--serif);font-size:clamp(15px,1.25vw,21px);line-height:1.55;white-space:pre-line}
+.nlist{display:flex;flex-direction:column;gap:1.6vh}
+.nitem{display:grid;grid-template-columns:auto 1fr;gap:1.4vw;align-items:center;padding:1.7vh 1.6vw;border:1px solid var(--line);border-radius:14px;background:var(--card);opacity:.12;filter:blur(3px);transform:translateX(30px);transition:opacity .7s,filter .7s,transform .7s cubic-bezier(.2,.8,.2,1),border-color .7s}
+.nitem.on{opacity:1;filter:none;transform:none;border-color:rgba(233,201,138,.35)}
+.nitem .src{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:6.5em;gap:.3em}
+.nitem .src b{font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(12px,.95vw,16px);letter-spacing:.06em;color:var(--night);background:var(--gold);border-radius:999px;padding:.3em .9em;white-space:nowrap}
+.nitem .src em{font-family:var(--num);font-style:normal;font-size:clamp(14px,1.1vw,19px);color:var(--dim)}
+.nitem h3{font-family:var(--serif);font-weight:800;font-size:clamp(20px,2vw,36px);line-height:1.25}
+.nitem p{margin-top:.35em;font-size:clamp(14px,1.15vw,20px);color:var(--dim);line-height:1.45}
+.ntick{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);white-space:nowrap;padding:.7em 0;display:flex}
+.ntick .tk{display:inline-block;padding-left:100%;animation:tick 70s linear infinite;font-size:clamp(12px,.95vw,16px);color:var(--dim);letter-spacing:.04em}
+.ntick .tk span{margin-right:3em}.ntick .tk span::before{content:'◆ ';color:var(--gold)}
+.ntick .lab{flex:none;font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(11px,.85vw,14px);letter-spacing:.18em;color:var(--night);background:var(--gold);padding:.25em .9em;margin-right:1em;position:relative;z-index:2}
+@keyframes tick{to{transform:translateX(-100%)}}
+@media (max-width:760px){
+ .ntl .m{font-size:10px}
+ .nbody{grid-template-columns:1fr;gap:18px}
+ .nmon{flex-direction:row;flex-wrap:wrap;align-items:flex-end;gap:10px 14px}
+ .nmon .big{font-size:76px}
+ .nmon .us{margin-top:0;width:100%}
+ .nitem{grid-template-columns:1fr;gap:8px;padding:14px 16px;transform:translateY(16px)}
+ .nitem .src{flex-direction:row;justify-content:flex-start;min-width:0}
+ .nitem h3{font-size:20px}.nitem p{font-size:14px}
+ .ntick{display:none}
+}
 </style>
 </head>
 <body>
@@ -352,6 +422,7 @@ const R1POOL=[
  {t:'피켓을 든 얼굴\n아침마다 같은 각도로 숙여진다',a:'지슬미',src:'〈선거철〉'},
  {t:'파도는 가까이 왔다가\n끝내 닿지 않는 방식으로 물러났고',a:'지슬미',src:'2회차 세 단어 시'}
 ];
+const FULL={"이석기|〈빈 손으로 다시 서다〉": "수십 년 쥐었던 명함 한 장\n내려놓으니 손바닥이 넓어졌다\n비워진 자리에 바람이 들어오고\n오래된 씨앗 하나 눈을 뜬다\n두려움인 줄 알았더니 설렘이요\n끝인 줄 알았더니 첫 페이지였다\n모르는 길이 곧 나를 깨우고\n낯선 아침이 곧 새 법문이다\n이 몸 다시 빈 그릇 되어\n하늘이 가득 담기기를 기다린다", "이석기|2회차 세 단어 시": "노을 앞에 앉은 두 사람\n하루를 다 쓴 빛처럼\n우리도 이렇게 익어간다\n말하지 않아도 알지\n속마음은 오래 함께한 시간 속에 놓여 있다는 것을\n당신의 침묵을 탓하지 않고\n나는 오늘도 침착하게 사랑한다\n서로를 바꾸려 하지 않았기에\n우리는 서로를 더 깊이 알게 되었고\n노을이 지듯 고요히\n존경은 사랑보다 늦게, 그러나 더 오래 머문다", "유명선|〈늦멀미〉": "늘 걷던 시간보다\n조금 늦어졌을 뿐인데\n하루 전체가\n나를 놓고 먼저 가버린 기분이었다\n사람들은 다 내려간 산길을\n나 혼자 거꾸로 걸어 올라갔다\n낮의 햇빛이 다 빠져나간 자리엔\n처음 보는 색의 공기들이 떠다녔고\n늦은 시간에만 열리는\n늦은 냄새와\n늦은 바람과\n늦은 풍경들이 있었다\n끝까지 가본 하루는\n생각보다 오래\n나를 기다리고 있었다\n늦은 것이 아니라\n다른 빛을 보는 중이라고", "유명선|〈늦멀미〉 초안": "늘 걷던 시간보다\n조금 늦어졌을 뿐인데\n하루 전체가\n나를 놓고 먼저 가버린 기분이었다\n버스는 오지 않았고\n마음만 먼저 몇 정거장을 지나쳤다\n포기하려던 순간\n버스는 꼭 그런 얼굴로 도착한다\n늦어버렸는데\n더 늦어버리게 만드는 얼굴\n반대로 가는 버스인 걸 알면서도\n그냥 앉아 있었다\n내 하루는 자주\n이렇게 버벅거렸다\n짧은 노선표 아래\n길게 흔들리는 동네와\n점점 조급해지는 마음\n이미 늦었는데\n괜히 더 늦어지는 중이라는 생각\n그 생각이\n늘 나를 먼저 포기시켰다\n산을 내려오는 사람들 사이로\n혼자 반대로 걸어 올라갔다\n낮의 햇빛이 다 빠져나간 자리엔\n처음 보는 색의 공기들이 떠다녔고\n늦은 시간에만 열리는 풍경들이 있었다\n나는 자꾸\n끝났다고 상상하며 살아왔는데\n끝까지 가본 하루는\n생각보다 오래\n나를 기다리고 있었다", "박세영|〈아직은, 늦은 봄〉": "장미가 더 피었다.\n어제는 세 송이. 오늘은 다섯 송이.\n셀 수 있을 때를 지나\n곧 셀 수 없을 때가 오겠지.\n나뭇잎들은 눈치도 없이\n어느새 진해져 있다.\n원래 그랬다는 듯이.\n계절은 나를 기다리지 않는다.\n그냥 간다.\n어제도. 오늘도.\n꽃은 피고 잎은 짙어지는데\n나는 아직 문 앞에 있다.", "김용희|〈먼저 지나가고〉": "늦은 봄\n발끝에 밀리는 꽃자루들\n바위 위 등껍질 하나\n오래 볕을 품고 있다\n물가에서 푸드득\n길 끝 벚나무는\n이제야 몇 송이\n바람은 먼저 지나가고\n꽃빛만 거기 남아 있다", "김용희|〈다소 늦은〉": "길어지는 그림자 사이\n피어오르는 풀냄새\n햇빛에 상기된 꽃들\n바위 위 느린 등껍질 하나\n푸드득 부산스러운 날갯짓\n꺄르르 내려앉는 웃음소리\n수북히 쌓인 부서진 꽃자루들을\n몸을 틀며 지나는 바람\n비탈 위 하얀 벚나무 하나\n다소 늦은", "김용희|2회차 세 단어 시": "오후의 빛이 길 위에 천천히 눕고\n나는 그 위를 걸으며 그림자를 하나 더 데려간다\n아무도 모르게 손에 쥔 따뜻함를 조금 건넨다\n불리지 않은 이름 하나가 공기 속에 남아\n햇살은 닿을 듯 말 듯 그 주변을 맴돌고\n발걸음은 이유 없이 같은 자리를 스친다\n나의 마음은 빛에 닿지 않는 쪽으로 기울어\n오래된 오후처럼 천천히 식어가고\n나는 그 속도를 그대로 두기로 한다", "김희진|〈우비 네 개〉": "창문에 코를 박은 아이들 등 뒤로\n괜히 손등으로 이마를 짚다가\n아이들 틈에 끼어 알록달록 우비 네 개를 펼쳤다\n쏟아지는 빗방울 틈으로\n아이들이 날린 비누방울은\n좀처럼 터지지 않고\n골목의 모서리를 돌아나간다\n깔깔대는 소리가 빈 거리를 가득 채울 때\n우리는 소매 끝까지 젖은 채 서 있었다\n해 질 녘 골목 끝은 물소리만 남아 있었다\n쌕쌕 숨소리 곁으로 고요가 천천히 번져왔다", "김희진|〈그리운 것들의 온도〉": "소란이 등을 밀어줄 때\n나는 비로소 가만해진다\n누군가의 웃음이 공기를 흔들고\n그 틈으로 햇살이 스며들어\n나른하게, 아주 나른하게\n어깨 위에 쌓인다\n향긋한 컵을 감싸쥐고\n그 온기가 손바닥에 번지는 동안\n음악은 귀 안쪽까지 들어와\n오래 머문다\n그렇게 가득 찬 순간\n뺨 위로 무언가 번진다\n따뜻한 것들은\n왜 이렇게 오래 기다렸다 오는지", "김기홍|〈통영〉": "바다는 햇살을 잘게 부수어\n물 위에 흩뿌린다\n윤슬은 섬과 섬 사이를 떠돌며\n금세 모였다가 흩어진다\n짭조름한 바람이\n오후를 느리게 밀어간다\n나는 한동안 책상에 앉아\n섬 사이를 오가는 배 한 척을\n눈으로 따라가다가\n문득\n겹겹의 섬과 오가는 배들 사이로\n얼마나 많은 삶이 스며 있었을까\n떠난 사람과 돌아온 사람\n기다린 사람의 시간까지\n바다는 그것을 다 담고도\n오래전 일처럼 반짝인다", "김기홍|〈윤슬〉": "바다는 햇살을 잘게 부수어\n물 위에 흩뿌린다\n윤슬은 섬과 섬 사이를 떠돌고\n배 한 척이\n그 빛을 가르며 지나간다\n짭조름한 바람이\n오후를 느리게 밀어간다\n나는 난간을 따라\n천천히 걸으며\n반짝이는 물결을\n한참 바라본다\n어느새 배는 멀어지고\n바다는 여전히\n눈부시다", "김기홍|2회차 세 단어 시": "늦은 밤 식탁\n식은 국 옆에 숟가락 하나\n컵 속을 들여다보면\n깊은 우물처럼 어둡다\n낮의 여름날은\n이미 등을 돌렸고\n벽시계 초침만\n얇은 화살처럼 지나간다\n그 앞에 앉은 사람은\n말 없이 손을 놓고\n잠시\n아무것도 덜어내지 않는다", "구혜란|〈오늘만큼은〉": "값이 싸도 절대 싸보이지 않는 너\n사고 싶어서가 아니라\n사야만 하는 날이 있어\n마음은 잠깐 딴 데 있었는데\n손은 이미 너를 들고 있고\n네가 건네진 그 순간\n꽃보다 환한 얼굴 하나\n그걸로 충분했어\n아니 그게 전부였어\n오늘 하루\n네가 가장 예쁜 날이었고\n나도 그랬어", "유주영|〈휴무〉": "처음에는 무휴인 줄 알았다\n미용실 거울 속 글자가 그랬다\n뒤돌아보니\n휴무였다\n닫혀야 하는 날인데\n거울 안에서는 계속 열려 있었다\n머리카락이 사각사각 잘려나갔다\n바닥에는 방금 전까지 나였던 것들이 조금씩 쌓였고\n미용사는 웃으며 말을 걸었다\n나는 자꾸 시계를 보았다\n곧 출근하시나 봐요\n전철은 터질 듯한 사람들을 싣고\n텅 빈 얼굴들로 달렸다\n커피로 겨우 미루어둔 잠이\n눈꺼풀 아래에서 천천히 몸을 뒤집었다\n집으로 돌아와\n닫히지 않는 하루를 닫아보려 했지만\n거울 속 글자는 오래 지워지지 않았다\n휴무\n무휴", "유주영|2회차 세 단어 시": "창문에 맺힌 물기 위에\n아무도 부르지 않은 이름이 얹혀 있다\n비어 있는 의자 곁에\n한 번도 건네지 못한 마음이 머문다\n돌아오지 않는 것들 앞에서\n이제야 이름을 준다\n이미 떠난 것들 위에\n남겨둘 수 있는 만큼의 마음을 준다", "박기철|〈우물 속 강의〉": "여름날, 나 여기 앉아 슬라이드 넘기는 소리 듣고 있어\n여름날, 나 우물처럼 깊다던 화면만 계속 내려다보고 있어\n여름날, 나 화살처럼 꽂히는 문장 그냥 듣고만 있어\n여름날, 나 같은 말이 다시 돌아오는 거 보고 있어\n나 물병 만지작거리고 있어, 물은 흔들리다 말고\n나 벽에 붙은 시간표 보고 있어, 처음부터 끝까지 똑같고\n나 사람들 고개 보는 중이야, 다 같은 속도로 끄덕이고\n나 손은 올릴까 말까 하다가 그냥 두고 있어\n나 문 쪽 보고 있어, 문은 조금 열려 있고\n나 복도 쪽 보고 있어, 바람도 없이 길게 있고\n나 그냥 일어나고 있어, 소리 안 나게 나가고 있고\n나 뒤는 안 보고 있어, 안에서는 아직도 말이 떨어지고 있어", "지슬미|〈선거철〉": "모두가 0번이라고 했다\n기호 0번\n아무개입니다\n피켓을 든 얼굴\n아침마다\n같은 각도로 숙여진다\n받은 명함은\n식기도 전에\n쓰레기통으로 떨어진다\n열린 창문 틈새로\n이름들이 드나든다\n우편함에 배달된\n각양각색의 얼굴들\n이 얼굴은\n훌륭하게 살아오셨군\n이 얼굴은\n익숙한 얼굴\n한 철이 오면\n어김없이 돌아오는\n철새처럼\n소리만 남기고\n철이 지나면\n간판보다 먼저 사라지는\n원래\n나랏님을 모르는 게\n태평성대라고 하더라", "지슬미|2회차 세 단어 시": "한여름의 지중해 해변에서\n햇빛은 과하게 익어가고 있었고\n사람들의 그림자는 얇게 말라 있었다\n그는 아무 일도 없다는 듯\n모래 위에 속마음을 눕혀 두었다\n파도는 가까이 왔다가\n끝내 닿지 않는 방식으로 물러났고\n그들은 침착하게 사랑하기를 택한 사람들처럼\n서로를 바라보지 않는 쪽으로 오래 머물렀다\n그래서 아무것도 변하지 않았고\n그래서 이미 지나가 있었다"}; // 누구의 시일까 — 공개 시 띄우는 시 전문
 const SIHWA=[ // 시화 (전시 작품)
  {f:'media/s01.jpg',a:'구혜란',t:'밝은 에너지와 행운의 바다'},
  {f:'media/s02.jpg',a:'김기홍',t:'춤'},
@@ -371,6 +442,54 @@ const VIDEO=[ // 시영상 (각 2개 구간 중 랜덤)
  {f:['media/v05-1.mp4','media/v05-2.mp4'],a:'유명선',t:'늦멀미'},
  {f:['media/v06-1.mp4','media/v06-2.mp4','media/v07-1.mp4','media/v07-2.mp4'],a:'지슬미',t:'정확한 거리'},
  {f:['media/v08-1.mp4','media/v08-2.mp4'],a:'박세영',t:'초여름'}
+];
+const NEWS=[ // AI 뉴스룸: 2026년 4월~11월 생성형 AI 주요 소식
+ {m:'04',en:'APRIL',us:'4.11 첫 만남\n4.25 처음으로 AI와 시를 쓰다',it:[
+  {src:'ChatGPT',d:'4.21·23',h:'Images 2.0 · GPT-5.5 출시',s:'그림 속 글자까지 또렷한 새 이미지 생성, 이틀 뒤 더 똑똑해진 GPT-5.5'},
+  {src:'Adobe',d:'4.17',h:'Firefly AI 어시스턴트 공개',s:'말로 지시하면 여러 Adobe 앱을 오가며 작업하는 크리에이티브 에이전트'},
+  {src:'Anthropic',d:'4.28',h:'Claude에 Adobe·Blender 연결',s:'포토샵·프리미어 등 50여 개 도구를 대화로 · 크리에이티브 커넥터 9종'},
+  {src:'Magnific',d:'4.28',h:'Freepik, ‘매그니픽’으로 이름을 바꾸다',s:'스톡 이미지 회사에서 AI 창작 플랫폼으로'}]},
+ {m:'05',en:'MAY',us:'5.9 · 5.30\n나다운 시 쓰기와 완성',it:[
+  {src:'Higgsfield',d:'5월',h:'Claude와 연결되다 (MCP)',s:'대화창에서 바로 이미지·영상을 만드는 시대'},
+  {src:'Google',d:'5.19',h:'Gemini Omni Flash 발표',s:'말로 고치는 대화형 영상 생성·편집 모델'},
+  {src:'Anthropic',d:'5.28',h:'Claude Opus 4.8 출시',s:'더 깊어진 글쓰기·추론 능력'}]},
+ {m:'06',en:'JUNE',us:'시화(詩畵)의 시간 시작\nChatGPT로 첫 시화 이미지',it:[
+  {src:'Anthropic',d:'6.9',h:'Claude Fable 5 공개',s:'처음으로 모두에게 열린 Mythos급 모델'},
+  {src:'Magnific',d:'6월',h:'Agents · MCP · Flows 발표',s:'Claude·ChatGPT 안에서 매그니픽을 부르다'},
+  {src:'Kling',d:'6.17',h:'Kling 3.0 Turbo · Omni 업그레이드',s:'더 빠르고, 참조 이미지로 인물·제품을 유지'}]},
+ {m:'07',en:'JULY',us:'Midjourney로\n시화를 다듬다',it:[
+  {src:'ByteDance',d:'7.31',h:'Seedance 2.5 출시',s:'최대 30초 “원테이크” 영상을 한 번에'},
+  {src:'Midjourney',d:'7.24',h:'V8.2, 기본 모델이 되다',s:'V8 시리즈 세 번째 업데이트'},
+  {src:'ChatGPT',d:'7.9',h:'GPT-5.6 Sol·Terra·Luna 출시',s:'정부 안전 검토를 거친 첫 공개 · 크기별 세 가지 모델'},
+  {src:'Higgsfield',d:'7.13',h:'After Effects와 연결',s:'AI 생성이 전문 편집 툴 안으로'}]},
+ {m:'08',en:'AUGUST',us:'8.22 SUNO로\n내 시를 노래로 (시가)',it:[
+  {src:'Higgsfield',d:'8.17',h:'기업가치 54억 달러 인정',s:'4억 달러 투자 유치 · AI 영상 플랫폼의 급성장'},
+  {src:'Magnific',d:'8월',h:'Flows를 AI 어시스턴트에서 실행',s:'만들어 둔 작업 흐름을 Claude·ChatGPT에서 그대로'},
+  {src:'Suno',d:'8.12',h:'BMG와 라이선스 계약',s:'음반사와 손잡는 AI 음악'}]},
+ {m:'09',en:'SEPTEMBER',us:'9.5 매그니픽을 MCP로 연결\n9.19 시영상 만들기',it:[
+  {src:'Suno',d:'9.9',h:'Suno v6 출시',s:'워너·BMG 등 라이선스 음악으로 학습한 첫 모델'},
+  {src:'ChatGPT',d:'9.9',h:'ChatGPT Images 2.5',s:'더 선명한 디테일, 더 정밀한 부분 수정, 더 빠른 생성'},
+  {src:'ChatGPT',d:'9.3',h:'GPT-6 첫 공개 (유료)',s:'다음 세대 모델의 시작'},
+  {src:'OpenAI',d:'9.24',h:'Sora API 종료',s:'한 시대를 연 영상 모델의 퇴장'}]},
+ {m:'10',en:'OCTOBER',us:'전시를 준비하다',it:[
+  {src:'ChatGPT',d:'10.7',h:'GPT-6 · Intelligent UI, 모두에게',s:'답이 글 대신 차트·버튼·작은 도구로 나타나다'},
+  {src:'Kling',d:'10.15',h:'Kling 4.0 정식 출시',s:'최대 30초 · 4K HDR · 키프레임 10개로 연출'},
+  {src:'Magnific',d:'10.8',h:'Magnific One 공개',s:'그리기 전에 ‘아트 디렉션’부터 정하는 이미지 모델 + 브랜드 키트'},
+  {src:'Midjourney',d:'10.8',h:'“Thinking Mode” 테스트',s:'이미지에도 ‘생각하기’가 들어오다'}]},
+ {m:'11',en:'NOVEMBER',us:'전시 「낯선 도구, 들여다본 마음」\n그리고 오늘, 우리의 회고',it:[
+  {src:'Adobe',d:'11.10',h:'Adobe MAX · Firefly, AI 크리에이티브 스튜디오로',s:'구글·OpenAI·Kling·ByteDance 모델까지 한곳에 · 외부 AI가 앱을 부리는 MCP 예고'},
+  {src:'Google',d:'11.5',h:'Gemini Omni 1.2 Flash',s:'Google Vids에서 누구나 15초 영상 월 3편 무료'},
+  {src:'Midjourney',d:'곧',h:'V9 공개 임박?',s:'연내 공개를 목표로 테스트 중 (미확정)'}]},
+ {k:'ins',m:'★',en:'INSIGHT',t:'올해의 패러다임 전환',sub:'“도구를 여는” 시대에서 “도구를 부르는” 시대로',it:[
+  {h:'프롬프트 → 대화와 연결',s:'대화창이 Adobe·Magnific·Higgsfield·Blender를 부리는 작업실이 되고, ChatGPT의 답은 화면과 도구가 되었다'},
+  {h:'하나의 모델 → 모델을 고르는 플랫폼',s:'Magnific·Higgsfield·Firefly 모두 여러 회사 모델을 한곳에. 모델은 재료, 차이는 흐름과 취향'},
+  {h:'짧은 클립 → 연출',s:'30초 원테이크·키프레임·아트 디렉션. “생성”에서 “감독”으로'}],
+  foot:'도구는 바뀌고 사라져도, 무엇을 말하고 싶은지 아는 마음은 남는다.\n우리가 217일 동안 연습한 건 그 마음이었다.'},
+ {k:'ins',m:'→',en:'FORECAST 2027',t:'앞으로의 시장, 이렇게 내다봐요',sub:'※ 올해의 흐름을 바탕으로 한 전망이에요',it:[
+  {h:'창작 에이전트의 일상화',s:'기획→생성→편집을 이어서 하는 에이전트. Adobe는 앱을 외부 AI에 여는 MCP를 2027년 초 베타 예정'},
+  {h:'“툴 숙련”보다 “디렉팅·취향”',s:'누구나 만들 수 있을 때, 무엇을 고르고 버릴지 아는 안목과 나다운 데이터가 경쟁력'},
+  {h:'출처·권리가 기본값',s:'라이선스 학습, 워터마크, 저작권 표기가 상업 창작의 기본 조건으로'}],
+  foot:'낯선 도구는 계속 나타날 거예요.\n그때마다 우리는, 다시 들여다보면 됩니다.'}
 ];
 const R3=[ // 숫자 맞히기
  {q:'4월 11일 첫 만남부터 오늘 전시 첫날까지\n함께한 날은 며칠?',n:217,u:'일',note:'2026.4.11 → 11.14'},
@@ -438,6 +557,7 @@ const FL=[ // 처음과 마지막 (단톡방 기록)
  {a:'지슬미',s1:{d:'4.25 첫 AI 시 (익어감·속마음)',t:'햇빛은 과하게 익어가고 있었고\n사람들의 그림자는 얇게 말라 있었다'},s2:{d:'5.29 나다운 시',t:'모두가 0번이라고 했다\n기호 0번 아무개입니다'},img:'media/s10.jpg',title:'정확한 거리',vids:[{f:'media/v06-1.mp4',t:'정확한 거리'}]}
 ];
 const ROUNDS=[
+ {id:'nw',no:'00',ph:'뉴스',tt:'AI 뉴스룸',ds:'4월부터 11월까지, 우리가 시를 쓰는 동안 생성형 AI 세상에는 무슨 일이?'},
  {id:'r3',no:'01',ph:'돌아보기',tt:'숫자로 본 217일',ds:'단톡방 기록에서 나온 숫자로 7개월을 되짚어요. 다 같이 외쳐 보세요!'},
  {id:'r4',no:'02',ph:'웃음',tt:'단톡방 명대사',ds:'그 말, 누가 했더라? 우리가 나눈 한마디들. 할 때마다 문제가 바뀌어요.'},
  {id:'r1',no:'03',ph:'시',tt:'누구의 시일까?',ds:'한 글자씩 나타나는 우리의 시 구절. 작가를 맞혀요. 할 때마다 문제가 바뀌어요.'},
@@ -580,7 +700,7 @@ function addScore(i,d){if(!S.teams[i])return;S.teams[i].s+=d;save();const e=$('#
 /* ======================= SCREENS ======================= */
 function go(screen,round){clearT();stopMedia();window._keys={};S.screen=screen;if(round){S.round=round;S.qi=0;S.set=buildSet(round);KEY=rnd(KEYS.filter(k=>k!==KEY))}save();render()}
 function stopMedia(){cancelAnimationFrame(window._raf);document.querySelectorAll('video').forEach(v=>{try{v.pause()}catch(e){}})}
-function render(){renderScore();({intro,menu,r1,rv,r3,r4,rf,rl,end})[S.screen==='round'?S.round:S.screen]()}
+function render(){renderScore();({intro,menu,nw,r1,rv,r3,r4,rf,rl,end})[S.screen==='round'?S.round:S.screen]()}
 
 function flowBG(){const MOB=matchMedia('(max-width:760px)').matches;const imgs=['01','02','03','04','05','06','07','08','09'];
  // 3겹(먼 곳·중간·가까운 곳) 각각 시화 9장이 01→09 순서대로 아래에서 올라옴
@@ -622,7 +742,7 @@ function bindNav(arr,reveal){
  $('#act').onclick=act;$('#next').onclick=nxt;$('#prev').onclick=prv;
  window._keys={act,nxt,prv};
 }
-function typeLine(el,text,done){let i=0;el.innerHTML='<span class="cursor"></span>';const step=()=>{if(i>text.length){done&&done();return}el.innerHTML=text.slice(0,i).replace(/\n/g,'<br>')+'<span class="cursor"></span>';if(text[i]&&text[i]!==' ')SND.key();i++;later(step,text[i-1]==='\n'?380:70+Math.random()*60)};step()}
+function typeLine(el,text,done){let i=0;el.innerHTML='<span class="cursor"></span>';const step=()=>{if(!document.body.contains(el))return;if(i>text.length){done&&done();return}el.innerHTML=text.slice(0,i).replace(/\n/g,'<br>')+'<span class="cursor"></span>';if(text[i]&&text[i]!==' ')SND.key();i++;later(step,text[i-1]==='\n'?380:70+Math.random()*60)};step()}
 
 function r1(){
  const R1=S.set||(S.set=buildSet('r1'));const q=R1[S.qi];const opts=shuffle([q.a,...shuffle(PEOPLE.filter(p=>p!==q.a)).slice(0,3)]);
@@ -631,8 +751,15 @@ function r1(){
  <div class="line poem" id="ln"></div>
  <div class="opts">${opts.map((o,i)=>`<div class="opt" data-o="${o}"><span class="k">${'ABCD'[i]}</span>${o}</div>`).join('')}</div>
  <div class="reveal" id="rv"></div></div>${ctrl()}</div>`;
- later(()=>typeLine($('#ln'),q.t,()=>{$('#gen').textContent='손 들고 외치세요 — 누구의 시일까요?'}),700);
- bindNav(R1,()=>{SND.drum();later(()=>{stage.querySelectorAll('.opt').forEach(o=>o.classList.add(o.dataset.o===q.a?'right':'wrong'));$('#rv').textContent=`${q.a} · ${q.src}`;SND.ding();confetti(70)},900)});
+ later(()=>typeLine($('#ln'),q.t,()=>{const g=$('#gen');if(g)g.textContent='손 들고 외치세요 — 누구의 시일까요?'}),700);
+ bindNav(R1,()=>{SND.drum();later(()=>{stage.querySelectorAll('.opt').forEach(o=>o.classList.add(o.dataset.o===q.a?'right':'wrong'));$('#rv').textContent=`${q.a} · ${q.src}`;SND.ding();confetti(70)},900);
+  const myQ=S.qi;later(()=>{const full=FULL[q.a+'|'+q.src];if(!full||S.qi!==myQ||S.round!=='r1'||!$('.qbox'))return;const keys=q.t.split('\n').map(x=>x.trim()).filter(Boolean);
+   const lines=full.split('\n'),n=lines.length,cols=n>22?3:n>12?2:1;
+   const ttl=q.src.replace('2회차 세 단어 시','세 단어로 쓴 첫 AI 시 · 4.25');
+   const box=$('.qbox');box.classList.add('pfmode');
+   box.innerHTML=`<div class="pfull fade"><div class="pfh"><div class="pfa">${q.a}</div><div class="pft">${ttl}</div></div>
+    <div class="pfb c${cols}">${lines.map(l=>{const hit=l&&keys.some(k=>l.includes(k)||k.includes(l));return `<div class="${hit?'hit':''}">${l||'&nbsp;'}</div>`}).join('')}</div></div>`;
+   pad([60+KEY,64+KEY,67+KEY],0,.03,.6,2.6)},2600)});
 }
 function rv(){
  const RV=S.set||(S.set=buildSet('rv'));const q=RV[S.qi];
@@ -669,6 +796,30 @@ function rv(){
  $('#play').onclick=toggle;
  bindNav(RV,()=>{SND.drum();later(()=>{show();stage.querySelectorAll('.opt').forEach(o=>o.classList.add(o.dataset.o===q.a?'right':'wrong'));$('#rv').innerHTML=`${q.a} · 〈${q.t}〉`;SND.ding();confetti(70)},900)});
  const k=window._keys;window._keys={...k,act:()=>{if(!$('#rv').textContent&&(running||p===0))toggle();else k.act()}};
+}
+function nw(){
+ const q=NEWS[S.qi];let n=0;const MON=NEWS.filter(x=>!x.k);
+ const all=MON.flatMap(x=>x.it.map(i=>`${x.m}월 · ${i.src} ${i.h}`));
+ const tl=`<div class="ntl">${MON.map((x,i)=>`<div class="m ${(i<S.qi||q.k)?'past':''} ${i===S.qi?'on':''}"><i></i>${x.m}</div>`).join('')}</div>`;
+ const body=q.k?`<div class="nins"><div class="ihd"><span class="nlive gold">${q.en}</span><h2>${q.t}</h2><p>${q.sub}</p></div>
+   <div class="igrid">${q.it.map((i,j)=>`<div class="nitem icard"><span class="ino">${String(j+1).padStart(2,'0')}</span><h3>${i.h}</h3><p>${i.s}</p></div>`).join('')}</div>
+   <div class="ifoot nitem">${q.foot}</div></div>`
+  :`<div class="nbody">
+   <div class="nmon"><span class="nlive">AI NEWS</span><div class="big">${q.m}<small>월</small></div><div class="en">${q.en} 2026</div>
+    <div class="us"><b>그때 우리는</b><span>${q.us}</span></div></div>
+   <div class="nlist">${q.it.map(i=>`<div class="nitem"><div class="src"><b>${i.src}</b><em>${i.d}</em></div><div><h3>${i.h}</h3><p>${i.s}</p></div></div>`).join('')}</div>
+  </div>`;
+ stage.innerHTML=`<div class="round fade">${head('AI 뉴스룸 · 2026',NEWS)}
+ <div class="news">${tl}${body}
+  <div class="ntick"><span class="lab">HEADLINES</span><div class="tk">${all.map(t=>`<span>${t}</span>`).join('')}</div></div>
+ </div>${ctrl()}</div>`;
+ $('#act').textContent=q.k?'펼치기 ▶':'헤드라인 ▶';
+ const items=[...stage.querySelectorAll('.nitem')];
+ if(q.k)pad([60+KEY,64+KEY,67+KEY,71+KEY],0,.04,.4,2.6);else{bell(N(pn(0,72)),0,.07,1.6);bell(N(pn(4,72)),.14,.06,1.8)}
+ bindNav(NEWS,()=>{});
+ const k=window._keys;
+ const act=()=>{if(n<items.length){items[n].classList.add('on');if(items[n].classList.contains('ifoot')){SND.fan();confetti(90)}else{bell(N(pn(n+3,72)),0,.08,1.8);SND.tick()}n++;if(n===items.length)$('#act').textContent=S.qi<NEWS.length-1?'다음 ▶':'뉴스 끝 ▶'}else k.nxt()};
+ $('#act').onclick=act;window._keys={...k,act};
 }
 function r3(){
  const q=R3[S.qi];
