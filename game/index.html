@@ -94,6 +94,7 @@ button{font-family:inherit;cursor:pointer;border:none;color:inherit;background:n
 .bubble{display:inline-block;background:var(--paper);color:var(--paperInk);border-radius:4px 22px 22px 22px;padding:2.2vh 1.8vw;font-family:var(--serif);font-size:clamp(24px,2.6vw,44px);line-height:1.5;max-width:100%;box-shadow:0 20px 50px rgba(0,0,0,.35)}
 .chat .time{font-family:var(--num);color:var(--dim);font-size:clamp(14px,1.2vw,20px);margin-left:1vw}
 /* intro floating 시화 */
+.intro-logo{display:block;height:clamp(64px,10vh,120px);width:auto;margin:0 auto 3vh;filter:drop-shadow(0 6px 20px rgba(0,0,0,.5))}
 .bgflow{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
 .fl-tile{position:absolute;top:0;height:auto;border-radius:2px;box-shadow:0 20px 50px rgba(0,0,0,.45);animation:drift linear infinite;will-change:transform}
 @keyframes drift{from{transform:translateY(105vh) rotate(var(--r))}to{transform:translateY(-120%) rotate(var(--r))}}
@@ -229,6 +230,86 @@ body.at-intro .menub{display:none}
 #nav button{border:1px solid var(--line);border-radius:999px;padding:.45em 1.1em;font-size:clamp(12px,1vw,16px);color:var(--dim)}
 .hint{position:fixed;top:1.4vh;right:1.6vw;z-index:3;color:var(--dim);font-size:clamp(10px,.8vw,13px);opacity:.45;letter-spacing:.04em}
 button:disabled{opacity:.3;cursor:default}
+
+/* ================= MOBILE (세로형) — 데스크톱은 그대로 ================= */
+@media (max-width:760px){
+ html,body{overflow:auto;height:auto;min-height:100%}
+ #app{min-height:100svh;height:auto}
+ #stage{align-items:flex-start;padding:62px 18px 28px;overflow:visible}
+ .hint{display:none}
+ .bgmb{top:12px;font-size:12px;padding:.45em .9em;opacity:.9}
+ #menub{left:calc(12px + 8.2em)}
+ .bgmb:first-of-type{left:12px}
+ .round{width:100%;height:auto;min-height:calc(100svh - 90px)}
+ .qbox{gap:22px;justify-content:flex-start;padding-top:8px}
+ .rhead{margin-bottom:16px;padding-bottom:10px}
+ .rhead .rno{font-size:24px}.rhead .rt{font-size:17px}.rhead .q{font-size:15px}
+ .ctrl{flex-wrap:wrap;gap:8px;margin-top:22px;position:sticky;bottom:10px;z-index:6;padding:8px;background:rgba(10,17,40,.75);backdrop-filter:blur(8px);border-radius:999px}
+ .btn{font-size:14px;padding:.8em 1.2em}
+ .eyebrow{font-size:15px}
+ /* intro */
+ .intro{padding-top:10vh}
+ .intro-logo{height:60px;margin-bottom:18px}
+ .intro h1{font-size:34px;line-height:1.25}
+ .intro .sub{font-size:15px;margin:14px 0 26px}
+ .tag{font-size:11px;letter-spacing:.12em;padding:.5em .9em}
+ .bgveil{background:radial-gradient(ellipse 90% 55% at 50% 40%,rgba(10,17,40,.92) 0%,rgba(10,17,40,.7) 60%,rgba(10,17,40,.25) 100%)}
+ /* menu */
+ .menu{width:100%}
+ .brand{flex-direction:column;gap:10px;margin-bottom:26px}
+ .brand img{height:64px}
+ .brand>div{text-align:center}
+ .brand h2.show{font-size:26px}
+ .rounds{grid-template-columns:1fr;border-top:none}
+ .rcard{border-right:none;border-top:1px solid var(--line);padding:16px 6px 16px 44px;display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:baseline}
+ .rcard::before{left:6px;top:24px}
+ .rcard .no{font-size:34px;grid-row:span 2}
+ .rcard .tt{font-size:20px;margin-top:0}
+ .rcard .ds{font-size:13px;margin-top:4px}
+ .finale{flex-direction:column;align-items:stretch;gap:10px;margin-top:22px}
+ /* r1 poem */
+ .line{font-size:24px;min-height:4.8em}
+ .opts{grid-template-columns:1fr 1fr;gap:10px}
+ .opt{font-size:18px;padding:12px 8px}
+ .reveal{font-size:16px}
+ .gen{font-size:12px;letter-spacing:.12em}
+ .ask{font-size:14px}
+ /* r3 numbers */
+ .ask.poem{font-size:22px!important}
+ .num{font-size:96px}
+ /* r4 chat */
+ .chat{width:100%;padding:8px 0}
+ .bubble{font-size:21px;padding:16px 18px}
+ .chat .time{display:block;margin:8px 0 0}
+ .chat .who{font-size:14px}
+ .ctag{font-size:11px}
+ /* rf first & last */
+ .fl{gap:18px}
+ .fl-line{height:40px}
+ .fl-mark span{font-size:12px;margin-right:.3em}.fl-mark em{font-size:11px}
+ .fl-row{grid-template-columns:1fr;gap:22px}
+ .paper{min-height:0;padding:22px 20px}
+ .paper-t{font-size:20px}
+ .paper-d{font-size:11px}
+ .arrow{display:none}
+ .frame .mat img,.mat video.fv{max-height:52vh;max-width:100%}
+ .fl-who{flex-direction:column;gap:6px;min-height:0}
+ .fl-who .q{font-size:20px}.fl-who .p{font-size:20px}
+ .fl-who .name{font-size:34px}.fl-who .wt{font-size:17px;display:block}
+ .fl.revealed .mat{transform:none}
+ .opts.slim .opt{font-size:17px}
+ /* rl memos */
+ .memo-title{font-size:26px}
+ .memo-board{gap:18px 14px;padding:4px}
+ .memo{flex:0 0 calc(50% - 7px);min-height:110px;padding:16px 10px}
+ .memo-t{font-size:16px}
+ .stk{font-size:24px}
+ .m-tape::before,.m-tape2::before{width:52px;height:16px;top:-8px}
+ .memo-tip{font-size:13px;line-height:1.7}
+ /* finale & credits */
+ .roll p{font-size:18px}.roll h3{font-size:16px;margin:5vh 0 1.2vh}
+ .credits{position:fixed;top:50px}
+}
 </style>
 </head>
 <body>
@@ -298,7 +379,7 @@ const R3=[ // 숫자 맞히기
  {q:'단톡방에서 "감사"라는 말은 몇 번 나왔을까?',n:81,u:'번',note:'우리 동아리의 공용어'},
  {q:'단톡방에 공유된 AI 대화 링크는 몇 개?',n:32,u:'개',note:'과정을 숨기지 않은 사람들'},
  {q:'Suno 시가 수업 날,\n단톡방에 올라온 노래는 몇 곡?',n:8,u:'곡',note:'시가 노래가 된 날'},
- {q:'이번 전시에 걸린 굿즈(스카프·맨투맨 등)는 몇 점?',n:14,u:'점',note:'시화 9 · 시영상 8 · 굿즈 14'}
+ {q:'1년 동안 제작한 굿즈(스카프·맨투맨 등)는 몇 점?',n:14,u:'점',note:'시화 9 · 시영상 8 · 굿즈 14'}
 ];
 const R4POOL=[ // 단톡방 명대사 (이름이 들어간 문장 제외) · c=분류
  {a:'박기철',d:'4.12',c:'작업',m:'AI가 여러분들 서재를 이렇게 그렸네요.'},
@@ -501,13 +582,14 @@ function go(screen,round){clearT();stopMedia();window._keys={};S.screen=screen;i
 function stopMedia(){cancelAnimationFrame(window._raf);document.querySelectorAll('video').forEach(v=>{try{v.pause()}catch(e){}})}
 function render(){renderScore();({intro,menu,r1,rv,r3,r4,rf,rl,end})[S.screen==='round'?S.round:S.screen]()}
 
-function flowBG(){const imgs=['01','02','03','04','05','06','07','08','09','10'];const layers=[{n:7,w:[7,10],blur:7,op:.22,dur:[95,120]},{n:6,w:[11,14],blur:3,op:.38,dur:[70,90]},{n:5,w:[15,19],blur:0,op:.62,dur:[48,62]}];
+function flowBG(){const MOB=matchMedia('(max-width:760px)').matches;const imgs=['01','02','03','04','05','06','07','08','09','10'];const layers=[{n:7,w:[7,10],blur:7,op:.22,dur:[95,120]},{n:6,w:[11,14],blur:3,op:.38,dur:[70,90]},{n:5,w:[15,19],blur:0,op:.62,dur:[48,62]}];
  let out='',k=0;const sh=shuffle(imgs.concat(imgs));
- layers.forEach((L,li)=>{for(let i=0;i<L.n;i++){const w=L.w[0]+Math.random()*(L.w[1]-L.w[0]),x=(i+.15+Math.random()*.7)/L.n*100-w/2,d=L.dur[0]+Math.random()*(L.dur[1]-L.dur[0]),dl=-Math.random()*d,r=(Math.random()-.5)*4;
+ layers.forEach((L,li)=>{for(let i=0;i<L.n;i++){const w=(L.w[0]+Math.random()*(L.w[1]-L.w[0]))*(MOB?2.4:1),x=(i+.15+Math.random()*.7)/L.n*100-w/2,d=L.dur[0]+Math.random()*(L.dur[1]-L.dur[0]),dl=-Math.random()*d,r=(Math.random()-.5)*4;
   out+=`<img class="fl-tile" src="media/s${sh[k++%sh.length]}.jpg" style="left:${x.toFixed(1)}vw;width:${w.toFixed(1)}vw;filter:blur(${L.blur}px);opacity:${L.op};z-index:${li};animation-duration:${d.toFixed(0)}s;animation-delay:${dl.toFixed(1)}s;--r:${r.toFixed(1)}deg">`}});
  return `<div class="bgflow">${out}<div class="bgveil"></div></div>`}
 function intro(){
  stage.innerHTML=flowBG()+`<div class="intro center fade">
+  <img class="intro-logo" src="media/logo.png" alt="프롬프트 포에트">
   <div class="tag">낯선 도구, 들여다본 마음 · 회고의 시간</div>
   <h1>프롬프트 포에트<br><em>217</em>일의 기록</h1>
   <p class="sub poem">우리가 쓴 시, 우리가 나눈 말, 우리가 만든 작품으로</p>
